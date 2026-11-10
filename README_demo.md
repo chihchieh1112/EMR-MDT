@@ -105,6 +105,8 @@
 
 **交付**：`..\EMR整合MDT_demo_P4_2026-11-10.zip`（整個 `demo\` 資料夾）。解壓後雙擊 `index.html`（或 `guide.html` 看說明）即可；不需要伺服器與網路。
 
+**GitHub Pages（2026-11-10）**：公開 repo `https://github.com/chihchieh1112/EMR-MDT`（分支 main，內容＝`demo\` 全部＋`.nojekyll`＋`README.md`；工作副本在 `..\_github\EMR-MDT\`，由 `demo\` 複製而來，更新時重新複製再 commit／push）。三個 html 加了 `<meta name="robots" content="noindex,nofollow">`，網址不會被搜尋引擎收錄，但知道網址的人都能開。Pages 啟用後網址：`https://chihchieh1112.github.io/EMR-MDT/`（導覽入口 `index.html?tour=1`、說明 `guide.html`）。
+
 未做（可選）：5 分鐘操作影片（可用 `operation-demo-video` skill 以這些畫面製作）；越南文 MDT 字串。
 
 ## 下一步

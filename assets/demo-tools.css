@@ -1,0 +1,33 @@
+/* EMR整合MDT demo：P4 的兩個浮動面板（右下回饋、左下導覽）。掛在 body 下、#app 之外；列印時隱藏。 */
+.demo-fb,.demo-tour{position:fixed;bottom:16px;z-index:60;font-family:inherit;font-size:var(--text-sm,14px);color:var(--text-primary,#223b37)}
+.demo-fb{right:16px;display:grid;justify-items:end;gap:8px}
+.demo-tour{left:16px;display:grid;justify-items:start;gap:8px}
+.demo-fb-toggle,.demo-tour-toggle{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--brand-600,#148d68);background:#fff;color:var(--brand-800,#0d5a41);border-radius:999px;padding:6px 12px;font-weight:600;box-shadow:0 2px 10px rgba(18,62,52,.15);cursor:pointer}
+.demo-fb-toggle b,.demo-tour-toggle b{display:inline-grid;place-items:center;min-width:20px;height:20px;border-radius:999px;background:var(--brand-600,#148d68);color:#fff;font-size:12px;padding:0 6px}
+.demo-fb-panel,.demo-tour-panel{width:min(380px,calc(100vw - 32px));max-height:min(70vh,640px);overflow:auto;background:#fff;border:1px solid var(--border-default,#dce7e1);border-radius:12px;box-shadow:0 10px 30px rgba(18,62,52,.18);padding:12px 14px;display:grid;gap:8px}
+.demo-fb-panel header,.demo-tour-panel header{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.demo-fb-page{display:block;color:var(--text-secondary,#5c6f69);font-size:12px}
+.demo-fb-verdicts{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.demo-fb-verdict{border:1px solid var(--border-default,#dce7e1);background:#fff;color:var(--text-primary,#223b37);border-radius:8px;padding:8px 6px;cursor:pointer;font-size:13px}
+.demo-fb-verdict.is-on.tone-fits{background:#e7f3ec;border-color:#206143;color:#206143;font-weight:700}
+.demo-fb-verdict.is-on.tone-change{background:#fff0d4;border-color:#b26a00;color:#70400b;font-weight:700}
+.demo-fb-verdict.is-on.tone-skip{background:#eef1f4;border-color:#4a5b66;color:#4a5b66;font-weight:700}
+.demo-fb-note,.demo-fb-export{width:100%;box-sizing:border-box;font:inherit;font-size:13px;border:1px solid var(--border-default,#dce7e1);border-radius:8px;padding:6px 8px;resize:vertical}
+.demo-fb-row,.demo-tour-row{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.demo-fb-row button,.demo-tour-row button{font-size:13px;padding:6px 10px;min-height:32px}
+.demo-fb-hint,.demo-tour-hint{margin:0;font-size:12px;color:var(--text-secondary,#5c6f69)}
+.demo-fb-list table{width:100%;border-collapse:collapse;font-size:12px}
+.demo-fb-list th,.demo-fb-list td{text-align:left;padding:4px 6px;border-bottom:1px solid var(--border-subtle,#eef3f0);vertical-align:top}
+.demo-fb-danger,.demo-tour-danger{color:#8c2b1b}
+.demo-tour-routes{display:flex;gap:4px}
+.demo-tour-routes button{min-width:32px;min-height:28px;padding:2px 8px;font-size:13px;border-radius:999px;border:1px solid var(--border-default,#dce7e1);background:#fff;color:var(--brand-800,#0d5a41);cursor:pointer}
+.demo-tour-routes button.is-on{background:var(--brand-600,#148d68);border-color:var(--brand-600,#148d68);color:#fff;font-weight:700}
+.demo-tour-route{margin:0;font-weight:600;font-size:13px;color:var(--brand-800,#0d5a41)}
+.demo-tour-step{margin:0;display:flex;gap:8px;align-items:baseline;font-size:13px}
+.demo-tour-step>b{font-size:15px}
+.demo-tour-who{color:var(--text-secondary,#5c6f69)}
+.demo-tour-text{margin:0;line-height:1.5}
+.demo-tour-foot{justify-content:space-between}
+.demo-tour-foot a{font-size:13px}
+@media (max-width:900px){.demo-fb-panel,.demo-tour-panel{max-height:50vh;width:calc(100vw - 32px)}.demo-tour{bottom:64px}.demo-fb{z-index:61}}
+@media print{.demo-fb,.demo-tour{display:none !important}}

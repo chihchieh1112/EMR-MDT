@@ -1,0 +1,87 @@
+/* EMR整合MDT demo：MDT 模組補充樣式（2026-11-10，P2）。app.css 已有 .mdt-* 的版面（2026-11-08 移植）；這裡只補 demo 新增的元件與 EMR 入口。不分層，蓋過 app.css。 */
+.mdt-page .record-subtabs{margin-bottom:0}
+.mdt-demo-note{margin:0}
+.mdt-demo-note summary{cursor:pointer;font-size:var(--text-sm)}
+.mdt-demo-controls{align-items:center;flex-wrap:wrap;gap:var(--space-2);margin:var(--space-2) 0}
+.mdt-demo-controls>span{font-size:var(--text-sm);color:var(--text-secondary)}
+.mdt-demo-note .source{margin:var(--space-1) 0 0}
+.mdt-page .filter-bar{display:flex;flex-wrap:wrap;gap:var(--space-2);margin:0}
+.mdt-page .filter-bar .filter-chip{flex:0 0 auto}
+.mdt-team-chips .filter-chip.active{background:var(--brand-600,#148d68);border-color:var(--brand-600,#148d68);color:#fff}
+.mdt-actions-row{flex-wrap:wrap;gap:var(--space-2);align-items:center;margin-top:var(--space-3)}
+.mdt-actions-row .button{text-decoration:none}
+.mdt-ready{display:grid;gap:var(--space-1);min-width:9rem}
+.mdt-ready-bar{display:block;height:.375rem;border-radius:var(--radius-full);background:var(--bg-muted);overflow:hidden}
+.mdt-ready-bar>i{display:block;height:100%;background:var(--brand-600,#148d68)}
+.mdt-ready.warn .mdt-ready-bar>i{background:var(--tone-warning-text,#b26a00)}
+.mdt-agenda td.mdt-q{min-width:18rem;max-width:26rem;white-space:normal;font-size:var(--text-sm)}
+.mdt-agenda .mdt-patient small{display:block}
+.mdt-agenda .mdt-actions a{display:inline-block}
+.mdt-question{margin:var(--space-2) 0 0;font-size:var(--text-base)}
+.mdt-question b{margin-right:var(--space-2)}
+.mdt-propose-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:var(--space-3)}
+.mdt-propose-grid label{margin:0}
+.mdt-record-card textarea{min-height:6rem}
+.mdt-opinions{display:grid;grid-template-columns:repeat(auto-fill,minmax(20rem,1fr));gap:var(--space-3)}
+.mdt-opinion{display:grid;gap:var(--space-2);align-content:start;padding:var(--space-3);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);background:var(--bg-surface)}
+.mdt-opinion.empty-op{border-style:dashed}
+.mdt-opinion>header{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-2)}
+.mdt-opinion>header small{color:var(--text-secondary);flex:1 1 auto}
+.mdt-opinion textarea{min-height:4.5rem}
+.mdt-opinion .form{gap:var(--space-2)}
+.mdt-plan-table input,.mdt-plan-table select{width:100%;min-width:7rem}
+.mdt-plan-table td:nth-child(3){min-width:18rem}
+.mdt-plan-table label{margin:0}
+.mdt-check{margin:0 0 var(--space-3);padding:0;list-style:none;display:grid;gap:var(--space-1);font-size:var(--text-sm)}
+.mdt-check li.ok{color:var(--tone-success-text)}
+.mdt-check li.warn{color:var(--tone-warning-text)}
+.mdt-lockbox{background:var(--bg-canvas);border-radius:var(--radius-lg);padding:var(--space-4)}
+.mdt-inline-form{display:inline-block;position:relative}
+.mdt-inline-form>summary{list-style:none;cursor:pointer;display:inline-flex}
+.mdt-inline-form>summary::-webkit-details-marker{display:none}
+.mdt-inline-form[open]>.form{margin-top:var(--space-2);padding:var(--space-3);border:1px solid var(--border-subtle);border-radius:var(--radius-md);background:var(--bg-surface);min-width:18rem}
+.mdt-task .row{flex-wrap:wrap;gap:var(--space-2)}
+.mdt-task .button{text-decoration:none}
+.mdt-task .mdt-list{font-size:var(--text-xs);color:var(--text-secondary)}
+/* EMR 入口 */
+.pin-mdt{white-space:nowrap}
+.pin-mdt small{font-weight:var(--weight-regular);opacity:.85}
+.consult-mdt{margin-left:var(--space-3);font-weight:var(--weight-medium)}
+.mdt-ov .mdt-facts{margin-top:var(--space-2)}
+.mdt-ov .row{margin-top:var(--space-3);flex-wrap:wrap;gap:var(--space-2)}
+.mdt-ov .row .button{text-decoration:none}
+.mdt-todo{margin:0;padding:0;list-style:none;display:grid;gap:var(--space-1)}
+.mdt-todo a{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-2);padding:var(--space-2) var(--space-3);border:1px solid var(--border-subtle);border-radius:var(--radius-md);background:var(--bg-surface);color:var(--text-primary);text-decoration:none}
+.mdt-todo a:hover{background:var(--bg-hover)}
+/* 列印 */
+.mdt-print th{text-align:left;padding:var(--space-1) var(--space-2);border:1px solid var(--border-default);background:var(--bg-muted);font-size:var(--text-sm)}
+.mdt-print-sign>div span{display:block;font-size:var(--text-sm);color:var(--text-secondary)}
+.mdt-print-sign>div b{display:block;border-top:1px solid var(--border-default);padding-top:var(--space-1)}
+/* P3：預填差異、勾選列、照會卡、個案會議、家庭會議簽名 */
+.mdt-diff ins{background:var(--tone-success-bg,#e7f3ec);color:var(--tone-success-text,#206143);text-decoration:none}
+.mdt-diff del{background:var(--tone-danger-bg,#fbe3de);color:var(--tone-danger-text,#8c2b1b)}
+.mdt-legend{margin:0 0 var(--space-2);font-size:var(--text-sm);color:var(--text-secondary)}
+.mdt-checks,.mdt-radio-rows{display:flex;flex-wrap:wrap;gap:var(--space-1) var(--space-4);margin:var(--space-1) 0 var(--space-3)}
+.mdt-check-inline{display:inline-flex;align-items:center;gap:var(--space-1);font-size:var(--text-sm);margin:0}
+.mdt-check-inline input{margin:0}
+.mdt-field-label{flex:1 1 100%;font-size:var(--text-sm);font-weight:var(--weight-medium)}
+.mdt-items{display:grid;gap:var(--space-1)}
+.mdt-item-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(12rem,18rem);gap:var(--space-2);align-items:center}
+.mdt-item-row input{min-width:0}
+.mdt-record-card h3{margin-top:var(--space-4)}
+.mdt-record-card .form h3{margin:var(--space-3) 0 var(--space-1);font-size:var(--text-base)}
+.mdt-record-card .form h3 small,.mdt-hc05-sec h3 small a{font-weight:var(--weight-regular)}
+.mdt-prefill-q{padding:var(--space-2) 0;border-top:1px dashed var(--border-subtle)}
+.mdt-prefill-q p{margin:0 0 var(--space-1)}
+.mdt-prefill-table td{vertical-align:top;font-size:var(--text-sm);max-width:18rem;white-space:normal}
+.mdt-prefill-table tr.is-missing td{background:var(--tone-warning-bg)}
+.mdt-locked{color:var(--text-secondary);font-style:italic}
+.mdt-prompt p{margin:0 0 var(--space-1)}
+.mdt-prompt .row{margin-top:var(--space-2);gap:var(--space-2)}
+.mdt-decision{margin:var(--space-1) 0}
+.mdt-ref>header>b{background:var(--brand-600,#148d68);color:#fff}
+.mdt-cases td{vertical-align:top;font-size:var(--text-sm)}
+.mdt-flow7 li{flex:1 1 7rem;font-size:var(--text-xs)}
+@media(max-width:900px){.mdt-item-row{grid-template-columns:1fr}}
+@media print{.mdt-demo-note,.mdt-page>.record-subtabs,.print-toolbar,.breadcrumb{display:none}}
+@media(max-width:900px){.mdt-opinions{grid-template-columns:1fr}}

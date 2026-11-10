@@ -1,0 +1,37 @@
+/* EMR整合MDT demo：品牌覆寫（2026-11-10，P0）。
+   色票取自 46 張行銷畫面的 brand.css：主綠 #148d68、hover #0d7052、深綠文字 #0d5a41、側欄深綠 #123e34、
+   萊姆 #94c83d、藍 #007eaa、底色 #f3f7f5、字色 #223b37、灰字 #60746f、線 #dce7e1；logo 用醫盾 brand-icon.svg。
+   這支不分層（unlayered），所以蓋過 tokens / legacy / components 三層；只改顏色與 lockup，不改版面。 */
+
+:root {
+  /* 綠色階：以 #148d68 為 600 重建 */
+  --brand-25: #f4faf7; --brand-50: #e7f3ec; --brand-100: #d3eadc; --brand-150: #bfdfcc; --brand-200: #a5cbb7;
+  --brand-300: #7dbb9d; --brand-400: #4aa584; --brand-500: #2d9a72; --brand-600: #148d68; --brand-700: #0d7052;
+  --brand-800: #0d5a41; --brand-900: #123e34; --brand-950: #0d2f28;
+  /* 萊姆 */
+  --lime-300: #b4d976; --lime-400: #94c83d; --lime-500: #7cae2c; --lime-600: #62901f;
+  /* 藍 */
+  --blue-400: #3f9cc7; --blue-500: #1b8bb8; --blue-600: #007eaa; --blue-700: #06688c; --blue-800: #0a4f6b;
+  /* 側欄與深色面 */
+  --ink-900: #123e34; --ink-800: #17503f; --ink-700: #205345;
+  /* 文字、底色、線 */
+  --text-primary: #223b37; --text-secondary: #60746f; --text-tertiary: #7c8d88;
+  --bg-canvas: #f3f7f5; --border-default: #dce7e1; --border-subtle: #e6eeea;
+  --color-focus: #007eaa;
+}
+
+/* 側欄 lockup：白底方塊放醫盾 logo，文字兩行 */
+.brand-mark { background: #fff; border: 1px solid #c7e6d9; box-shadow: none; }
+.brand-mark img { width: 24px; height: 26px; display: block; }
+.brand-lockup b { font-size: 17px; letter-spacing: -0.3px; white-space: nowrap; }
+.brand-lockup small { color: #bdd8c9; letter-spacing: 0; }
+.rail-small .brand-lockup .brand-mark { width: 40px; }
+
+/* 登入頁左側面板 */
+.product-mark { background: #fff; box-shadow: none; }
+.product-mark img { width: 26px; height: 28px; display: block; }
+.brand-panel {
+  background: radial-gradient(90% 70% at 100% 100%, rgb(148 200 61 / 0.22) 0%, transparent 60%),
+              linear-gradient(160deg, #0d2f28 0%, #17503f 100%);
+}
+.brand-kicker { color: #b4d976; }

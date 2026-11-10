@@ -1,0 +1,92 @@
+@layer legacy{
+/* 員工登入頁（login.html）：與 brand.css 同一色票，但獨立於工作區樣式。
+   2026-09-13：移除工作站識別、OTP 與忘記密碼對話框。2026-10-18：恢復語言切換（中／英／越，由 i18n.js 處理）。 */
+[hidden]{display:none!important}
+html,body{margin:0;min-height:100%}
+.skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:10px;background:var(--neutral-0);padding:10px;z-index:20;border-radius:var(--radius-sm)}
+
+/* 版面：左品牌、右登入 */
+.login-shell{display:grid;grid-template-columns:minmax(360px,44%) minmax(0,1fr);min-height:100vh}
+
+/* 登入卡 */
+.login-panel{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px 32px}
+.login-card{width:min(460px,100%);background:var(--neutral-0);border:1px solid var(--line);border-radius:var(--radius);padding:28px 32px 20px;box-shadow:var(--shadow-lg);display:grid;gap:0}
+.card-head h1{margin:0 0 6px;font-size:var(--text-3xl);letter-spacing:-.3px}
+.card-head p{margin:0 0 14px;font-size:var(--text-sm);color:var(--muted)}
+.sso-note{margin:0 0 16px;padding:12px 14px;border:1px solid var(--brand-150);background:var(--neutral-50);border-radius:var(--radius-md);font-size:var(--text-sm);line-height:1.55;color:var(--brand-700)}
+.sso-tag{display:inline-block;background:var(--brand-dark);color:var(--neutral-0);font-size:var(--text-xs);font-weight:800;letter-spacing:.8px;border-radius:var(--radius-xs);padding:2px 6px;margin-right:6px;vertical-align:1px}
+.step{display:grid;gap:6px}
+label{font-weight:650;font-size:var(--text-md);margin-top:8px}
+input[type=text],input[type=password]{width:100%;min-height:46px;border:1px solid var(--neutral-300);border-radius:var(--radius-md);padding:10px 12px;background:var(--neutral-0);color:var(--ink);font-size:var(--text-lg)}
+input.is-invalid{border-color:var(--danger);background:var(--red-25)}
+input:disabled,button:disabled{opacity:.55}
+input:disabled{background:var(--neutral-50);cursor:not-allowed}
+.hint{margin:0;font-size:var(--text-xs);color:var(--muted)}
+.field-error{margin:0;font-size:var(--text-sm);color:var(--danger);font-weight:600}
+.password-wrap{display:flex;gap:8px;align-items:stretch}
+.password-wrap input{flex:1}
+.ghost{border:1px solid var(--brand-50);background:var(--neutral-0);color:var(--brand-hover);border-radius:var(--radius-md);padding:0 14px;min-height:46px;cursor:pointer;font-weight:650;white-space:nowrap}
+.ghost:hover:not(:disabled){background:var(--brand-50)}
+.options{display:grid;gap:6px;margin:10px 0 6px}
+.check{display:flex;align-items:center;gap:8px;font-weight:500;font-size:var(--text-sm);margin:0;color:var(--ink)}
+button.primary{margin-top:8px;min-height:48px;border:0;border-radius:var(--radius-md);background:var(--brand);color:var(--neutral-0);font-weight:700;font-size:var(--text-lg);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+button.primary:hover:not(:disabled){background:var(--brand-hover)}
+button.primary:disabled{background:var(--brand-300);cursor:not-allowed;opacity:1}
+button.primary.is-busy{cursor:progress}
+button.primary.is-busy::before{content:"";width:16px;height:16px;border:2px solid color-mix(in srgb, var(--neutral-0) 50%, transparent);border-top-color:var(--neutral-0);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+button.link{border:0;background:none;color:var(--brand-blue);cursor:pointer;padding:6px 2px;min-height:36px;font-size:var(--text-sm);text-decoration:underline;text-underline-offset:3px}
+.alert{padding:12px 14px;border-radius:var(--radius-md);border:1px solid var(--red-200);background:var(--red-50);color:var(--red-700);font-size:var(--text-md);margin-bottom:12px}
+.alert.info{border-color:var(--brand-150);background:var(--brand-50);color:var(--brand-800)}
+.lock-timer{margin:8px 0 0;text-align:center;font-size:var(--text-sm);font-weight:700;color:var(--danger);font-variant-numeric:tabular-nums}
+.help-line{margin:14px 0 0;font-size:var(--text-xs);color:var(--muted);line-height:1.55}
+.tbd{color:var(--warn-ink);background:var(--warn-bg);border-radius:var(--radius-xs);padding:1px 6px}
+.demo-accounts{margin:16px 0 0;border-top:1px dashed var(--line);padding-top:10px;font-size:var(--text-sm)}
+.demo-accounts summary{cursor:pointer;color:var(--muted);font-weight:650;padding:6px 0}
+.demo-accounts table{width:100%;border-collapse:collapse;margin-top:6px;font-size:var(--text-sm)}
+.demo-accounts th,.demo-accounts td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line)}
+.demo-accounts th{background:var(--neutral-50);font-size:var(--text-xs);color:var(--muted)}
+.demo-accounts button.link{padding:0;min-height:auto;font-size:var(--text-sm)}
+.demo-accounts p{margin:8px 0 0;color:var(--muted)}
+.foot{margin:16px 0 0;font-size:var(--text-xs);color:var(--muted);text-align:center;max-width:460px;line-height:1.6}
+.foot a{color:var(--brand-blue)}
+
+/* 降級與縮放 */
+@media(max-width:900px){.login-shell{grid-template-columns:minmax(0,1fr)}.login-panel{padding:32px 16px}.login-card{padding:20px 16px 16px}}
+/* 介面語言切換（i18n.js 填入按鈕）；中文用正黑體／蘋方，越文、英文維持拉丁字型。 */
+html:lang(zh-Hant) body{font-family:var(--font-sans)}
+/* 品牌面板（2026-11-01 設計系統）：產品名、定位一句、四步驟，底部一條生命徵象線在載入時畫出來。 */
+.brand-panel{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;gap:var(--space-10);padding:var(--space-12) var(--space-12) var(--space-10);color:var(--neutral-100);background:radial-gradient(90% 70% at 100% 100%,rgb(156 206 79 / 0.16) 0%,transparent 60%),radial-gradient(70% 60% at 0% 0%,var(--ink-700) 0%,transparent 70%),var(--ink-900)}
+.brand-panel::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgb(255 255 255 / 0.07) 1px,transparent 1px);background-size:24px 24px;-webkit-mask-image:radial-gradient(80% 70% at 35% 45%,black 0%,transparent 75%);mask-image:radial-gradient(80% 70% at 35% 45%,black 0%,transparent 75%)}
+.brand-panel>*{position:relative}
+.brand-product{display:flex;align-items:center;gap:var(--space-3)}
+.product-mark{display:grid;place-items:center;width:40px;height:40px;border-radius:11px;background:var(--lime-400);color:var(--ink-900);font-weight:var(--weight-bold);font-size:var(--text-sm);letter-spacing:.02em;box-shadow:inset 0 -2px 0 rgb(0 0 0 / 0.12)}
+.brand-product b{font-family:var(--font-display);font-size:var(--text-xl);font-weight:var(--weight-semibold);letter-spacing:var(--tracking-tight);color:var(--neutral-0)}
+.brand-story{max-width:30rem}
+.brand-kicker{margin:0 0 var(--space-4);font-size:var(--text-sm);font-weight:var(--weight-semibold);letter-spacing:var(--tracking-caps);color:var(--lime-300)}
+.brand-headline{margin:0;font-family:var(--font-display);font-size:clamp(32px,3.4vw,48px);line-height:1.12;font-weight:var(--weight-semibold);letter-spacing:-0.02em;color:var(--neutral-0);text-wrap:balance}
+.brand-steps{margin:var(--space-5) 0 0;font-size:var(--text-lg);color:rgb(232 239 237 / 0.62);letter-spacing:.01em}
+.brand-signal{display:grid;gap:var(--space-4)}
+.brand-pulse{width:100%;height:auto;overflow:visible}
+.brand-pulse path{stroke-dasharray:1;stroke-dashoffset:1;animation:pulse-draw 1.8s var(--ease-standard) .25s forwards}
+.brand-pulse circle{opacity:0;animation:pulse-dot var(--duration-slow) var(--ease-enter) 1.9s forwards}
+.brand-panel .brand-wave{display:block;height:3px;border-radius:var(--radius-full);opacity:.85;background:linear-gradient(90deg,var(--blue-500) 0%,var(--blue-400) 45%,var(--lime-400) 100%)}
+@keyframes pulse-draw{to{stroke-dashoffset:0}}
+@keyframes pulse-dot{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){.brand-pulse path{stroke-dashoffset:0;animation:none}.brand-pulse circle{opacity:1;animation:none}}
+
+/* 登入卡 */
+.login-panel{background:var(--bg-canvas)}
+.login-card{border:1px solid var(--border-subtle);border-radius:var(--radius-xl);padding:var(--space-8) var(--space-8) var(--space-6);box-shadow:var(--shadow-lg)}
+.card-head h1{font-size:var(--text-3xl);letter-spacing:var(--tracking-tight)}
+.sso-note{border-color:var(--tone-info-border);background:var(--tone-info-bg);color:var(--tone-info-text);border-radius:var(--radius-lg)}
+.sso-tag{background:var(--blue-700);border-radius:var(--radius-xs)}
+.lang-switch{display:flex;width:fit-content;margin:-4px 0 var(--space-3) auto}
+input[type=text],input[type=password]{border-color:var(--border-control);border-radius:var(--radius-md);font-size:var(--text-lg)}
+.ghost{border-color:var(--border-strong);color:var(--text-primary);border-radius:var(--radius-md);box-shadow:var(--shadow-xs)}
+.ghost:hover:not(:disabled){background:var(--bg-hover);border-color:var(--border-control);color:var(--text-primary)}
+button.primary{border-radius:var(--radius-md);min-height:var(--control-lg);box-shadow:var(--shadow-sm),inset 0 1px 0 rgb(255 255 255 / 0.12)}
+button.link{color:var(--text-link)}
+.demo-accounts{border-top-color:var(--border-default)}
+@media(max-width:900px){.brand-panel{padding:var(--space-6) var(--space-5);gap:var(--space-5)}.brand-story,.brand-signal{display:none}}
+}

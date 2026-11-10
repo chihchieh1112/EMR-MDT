@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>設計系統｜EMR · Smart MDT</title><link rel="icon" href="assets/icon.png">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+<link rel="stylesheet" href="assets/brand.css">
+<link rel="stylesheet" href="assets/components.css">
+<style>
+  @layer components {
+    .ds { display: grid; grid-template-columns: 220px minmax(0, 1fr); min-height: 100vh; }
+    .ds-nav { position: sticky; top: 0; height: 100vh; overflow: auto; padding: var(--space-6) var(--space-4); background: var(--ink-900); color: var(--neutral-100); }
+    .ds-nav .brand-lockup { padding: 0 var(--space-2) var(--space-6); display: flex; align-items: center; gap: var(--space-3); color: var(--neutral-0); text-decoration: none; }
+    .ds-nav .brand-lockup b { font-size: var(--text-lg); }
+    .ds-nav a.ds-link { display: block; padding: var(--space-2) var(--space-3); border-radius: var(--radius-md); color: rgb(232 239 237 / 0.74); text-decoration: none; font-size: var(--text-md); }
+    .ds-nav a.ds-link:hover { background: rgb(255 255 255 / 0.06); color: var(--neutral-0); }
+    .ds-main { padding: var(--space-10) var(--space-12) var(--space-16); max-width: 1180px; }
+    .ds-hero { padding-bottom: var(--space-8); border-bottom: 1px solid var(--border-subtle); margin-bottom: var(--space-10); }
+    .ds-hero h1 { font-size: var(--text-4xl); margin-bottom: var(--space-3); }
+    .ds-hero p { max-width: 46rem; color: var(--text-secondary); font-size: var(--text-lg); }
+    .ds-principles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-4); margin-top: var(--space-6); }
+    .ds-principles div { padding: var(--space-4); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); background: var(--bg-surface); }
+    .ds-principles b { display: block; margin-bottom: var(--space-1); }
+    .ds-principles span { color: var(--text-secondary); font-size: var(--text-sm); }
+    .ds-section { margin-bottom: var(--space-12); scroll-margin-top: var(--space-6); }
+    .ds-section > h2 { font-size: var(--text-2xl); margin-bottom: var(--space-2); }
+    .ds-section > p { color: var(--text-secondary); max-width: 46rem; margin-bottom: var(--space-5); }
+    .ds-section h3 { font-size: var(--text-md); color: var(--text-secondary); margin: var(--space-6) 0 var(--space-3); }
+    .ds-ramp { display: grid; grid-template-columns: 72px minmax(0, 1fr); align-items: center; gap: var(--space-3); margin-bottom: var(--space-2); }
+    .ds-ramp b { font-size: var(--text-sm); }
+    .ds-ramp-row { display: grid; grid-template-columns: repeat(13, minmax(0, 1fr)); gap: 4px; }
+    .ds-swatch span { display: block; height: 40px; border-radius: var(--radius-sm); box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.06); }
+    .ds-swatch small, .ds-swatch code { display: block; font-size: var(--text-xs); color: var(--text-tertiary); margin-top: 2px; }
+    .ds-swatch code { font-size: 11px; }
+    .ds-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--space-3); }
+    .ds-token { display: grid; grid-template-columns: 32px minmax(0, 1fr); grid-template-rows: auto auto; column-gap: var(--space-3); align-items: center; padding: var(--space-2); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); background: var(--bg-surface); }
+    .ds-token span { grid-row: span 2; width: 32px; height: 32px; border-radius: var(--radius-sm); box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.08); }
+    .ds-token small { color: var(--text-tertiary); font-size: var(--text-xs); }
+    .ds-tone { position: relative; padding: var(--space-4); border-radius: var(--radius-lg); display: grid; gap: var(--space-1); }
+    .ds-tone span { position: absolute; right: var(--space-4); top: var(--space-4); width: 12px; height: 12px; border-radius: 50%; }
+    .ds-tone code { font-size: var(--text-xs); opacity: 0.8; }
+    .ds-type-row, .ds-space-row { display: grid; grid-template-columns: 120px 60px minmax(0, 1fr); gap: var(--space-4); align-items: center; padding: var(--space-2) 0; border-bottom: 1px solid var(--border-subtle); }
+    .ds-type-row span { line-height: var(--leading-tight); font-family: var(--font-display); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .ds-type-row small, .ds-space-row small { color: var(--text-tertiary); }
+    .ds-space-row span { height: 12px; border-radius: 3px; background: var(--brand-400); }
+    .ds-shapes { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-6); padding: var(--space-6); background: var(--bg-canvas); border-radius: var(--radius-xl); }
+    .ds-shape { display: grid; gap: 4px; align-content: end; height: 120px; padding: var(--space-3); background: var(--bg-surface); }
+    .ds-shape code, .ds-shape small { font-size: var(--text-xs); color: var(--text-secondary); }
+    .ds-icons { display: grid; grid-template-columns: repeat(auto-fill, minmax(112px, 1fr)); gap: var(--space-2); }
+    .ds-icon { display: grid; justify-items: center; gap: var(--space-2); padding: var(--space-4) var(--space-2); border-radius: var(--radius-md); color: var(--text-primary); background: var(--bg-surface); border: 1px solid var(--border-subtle); }
+    .ds-icon code { font-size: var(--text-xs); color: var(--text-tertiary); }
+    .ds-specimen { padding: var(--space-6); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); background: var(--bg-surface); }
+    .ds-specimen + .ds-specimen { margin-top: var(--space-4); }
+    .ds-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); }
+    .ds-row + .ds-row { margin-top: var(--space-4); }
+    .ds-form { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-4); }
+    .ds-wide { grid-column: 1 / -1; }
+    .ds-hint { margin: 0; color: var(--text-tertiary); font-size: var(--text-xs); }
+    .ds-error { margin: 0; color: var(--tone-danger-text); font-size: var(--text-xs); font-weight: var(--weight-semibold); }
+    .ds-motion { width: 100%; }
+    .ds-rules { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+    .ds-rules ul { margin: 0; padding-left: var(--space-5); }
+    .ds-rules li { margin: var(--space-1-5) 0; }
+    .ds-do { border-top: 3px solid var(--brand-500); }
+    .ds-dont { border-top: 3px solid var(--red-500); }
+    @media (max-width: 900px) { .ds { grid-template-columns: 1fr; } .ds-nav { position: static; height: auto; } .ds-main { padding: var(--space-6) var(--space-4); } .ds-principles, .ds-form, .ds-rules { grid-template-columns: 1fr; } .ds-ramp-row { grid-template-columns: repeat(7, minmax(0, 1fr)); } }
+  }
+</style>
+</head>
+<body>
+<div class="ds">
+  <nav class="ds-nav" aria-label="設計系統目錄">
+    <a class="brand-lockup" href="index.html"><em class="brand-mark" aria-hidden="true">SW</em><b>設計系統</b></a>
+    <a class="ds-link" href="#principles">原則</a>
+    <a class="ds-link" href="#color">色彩</a>
+    <a class="ds-link" href="#type">字型與字級</a>
+    <a class="ds-link" href="#space">間距</a>
+    <a class="ds-link" href="#shape">圓角與陰影</a>
+    <a class="ds-link" href="#motion">動態</a>
+    <a class="ds-link" href="#icons">圖示</a>
+    <a class="ds-link" href="#buttons">按鈕</a>
+    <a class="ds-link" href="#forms">表單</a>
+    <a class="ds-link" href="#selection">篩選、分段、頁籤</a>
+    <a class="ds-link" href="#status">狀態標籤</a>
+    <a class="ds-link" href="#feedback">提示與 Toast</a>
+    <a class="ds-link" href="#data">表格與卡片</a>
+    <a class="ds-link" href="#rules">使用規則</a>
+  </nav>
+
+  <main class="ds-main">
+    <header class="ds-hero" id="principles">
+      <span class="eyebrow">SMART WARD · DESIGN SYSTEM</span>
+      <h1>安靜、清楚、每個動作都有回應</h1>
+      <p>病房工作站一天要看好幾百次。這套系統讓畫面先安靜下來，只把需要注意的東西提亮；所有值都來自 <code>tokens.css</code>，元件在 <code>components.css</code>，規格寫在 <code>PRD_設計系統.md</code>。這一頁直接讀實際的 CSS，改 token 這頁就跟著變。</p>
+      <div class="ds-principles">
+        <div><b>安靜優先</b><span>底色、框線與次要按鈕都是中性色；綠色只留給主要動作與選取狀態。</span></div>
+        <div><b>一眼分輕重</b><span>一個區塊最多一顆主要按鈕；其餘降為次要、文字或圖示按鈕。</span></div>
+        <div><b>狀態不只靠顏色</b><span>危險、警示、資訊都有圖示或文字；異常值同時有底色與 ▲▼ 標記。</span></div>
+        <div><b>回應在手邊</b><span>存檔結果在畫面下方浮出；換頁時內容交叉淡入，側欄與頂列不動。</span></div>
+      </div>
+    </header>
+
+    <section class="ds-section" id="color">
+      <h2>色彩</h2>
+      <p>七組 OKLCH 色階由公司色票（綠葉、萊姆圓、藍色波浪）推出，每組 13 階，明度一致，所以同一階在不同色相看起來一樣亮。畫面上只用語意 token；色階只給 token 本身與圖表。</p>
+      <h3>色階</h3>
+      <div id="ds-ramps"></div>
+      <h3>語意 token</h3>
+      <div class="ds-grid" id="ds-semantic"></div>
+      <h3>狀態色調（底色、文字、框線、實色四件一組）</h3>
+      <div class="ds-grid" id="ds-tones"></div>
+    </section>
+
+    <section class="ds-section" id="type">
+      <h2>字型與字級</h2>
+      <p>系統字：Windows 用 Segoe UI Variable 與微軟正黑體，Mac 用系統字與蘋方，越文走拉丁字型。不另載字型檔。內文 15px、表格與控制項 14px，畫面上沒有小於 12px 的字；數字一律等寬（tabular）。</p>
+      <div id="ds-type" data-sample="病房工作台 Fictional patient A 125/77 mmHg"></div>
+    </section>
+
+    <section class="ds-section" id="space">
+      <h2>間距</h2>
+      <p>4px 格線，另有 2px 給細部對齊。卡片內距 20/24、區塊間距 16、頁面邊距 24/32。</p>
+      <div id="ds-space"></div>
+    </section>
+
+    <section class="ds-section" id="shape">
+      <h2>圓角與陰影</h2>
+      <p>標籤 6、按鈕與輸入框 8、卡片 12、對話框 16。陰影用側欄的墨綠色當底，深度看起來是同一種材質。</p>
+      <div class="ds-shapes" id="ds-shape"></div>
+    </section>
+
+    <section class="ds-section" id="motion">
+      <h2>動態</h2>
+      <p>動畫只用來說明「東西從哪裡來、到哪裡去」。進場比退場慢；最長 320ms；系統設定「減少動態」時全部改為瞬間完成。</p>
+      <table class="dense-table ds-motion">
+        <thead><tr><th>token</th><th>時間</th><th>用在</th></tr></thead>
+        <tbody>
+          <tr><td><code>--duration-instant</code></td><td>80ms</td><td>按下按鈕、表格列 hover</td></tr>
+          <tr><td><code>--duration-fast</code></td><td>140ms</td><td>顏色與框線變化、換頁時舊畫面淡出</td></tr>
+          <tr><td><code>--duration-base</code></td><td>200ms</td><td>新畫面淡入、選單與對話框出現、頁籤底線</td></tr>
+          <tr><td><code>--duration-slow</code></td><td>320ms</td><td>Toast 浮出</td></tr>
+          <tr><td><code>--ease-enter</code> / <code>--ease-exit</code></td><td>—</td><td>進場減速、退場加速</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="ds-section" id="icons">
+      <h2>圖示</h2>
+      <p>24px 格、1.75 線寬、圓角端點（畫法沿用 Lucide，ISC 授權）。由 <code>ICUIcons.svg(名稱)</code> 產生；裝飾用的圖示對報讀軟體隱藏，只有圖示的按鈕一定要有 <code>aria-label</code>。</p>
+      <div class="ds-icons" id="ds-icons"></div>
+    </section>
+
+    <section class="ds-section" id="buttons">
+      <h2>按鈕</h2>
+      <p>沒加 class 的 <code>&lt;button&gt;</code> 是主要動作；一個區塊只放一顆。其他依序降為 <code>secondary</code>、<code>tertiary</code>；刪除與作廢用 <code>danger</code>。按鈕文字不換行。</p>
+      <div class="ds-specimen">
+        <div class="ds-row">
+          <button type="button" data-icon="plus">新增醫囑</button>
+          <button type="button" class="secondary" data-icon="bed">換床</button>
+          <button type="button" class="tertiary">返回清單</button>
+          <button type="button" class="danger">作廢</button>
+          <button type="button" class="secondary danger">取消醫囑</button>
+          <button type="button" disabled>無法送出</button>
+        </div>
+        <div class="ds-row">
+          <button type="button" class="compact-button">加入</button>
+          <button type="button" class="secondary compact-button">展開</button>
+          <button type="button" class="tertiary icon-button" aria-label="收合側欄" title="收合側欄" data-icon="panel-left"></button>
+          <button type="button" class="secondary icon-button" aria-label="列印" title="列印" data-icon="printer"></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="ds-section" id="forms">
+      <h2>表單</h2>
+      <p>標籤在欄位上方，說明與錯誤在欄位下方。框線對白底 3:1；聚焦時藍色框線加外圈，與綠色的「選取」分開。</p>
+      <div class="ds-specimen">
+        <div class="ds-form">
+          <label>病人姓名<input type="text" placeholder="搜尋姓名、病歷號、床號"><span class="ds-hint">至少輸入 2 個字</span></label>
+          <label>急迫性<select><option>常規</option><option>緊急</option></select></label>
+          <label>新床位<input type="text" value="201" aria-invalid="true"><span class="ds-error">這個床位已有病人</span></label>
+          <label class="ds-wide">會診原因<textarea placeholder="例如：請評估術後心律不整"></textarea></label>
+          <div class="ds-row">
+            <label class="check"><input type="checkbox" checked> 體溫</label>
+            <label class="check"><input type="checkbox"> 心率</label>
+            <label class="check"><input type="radio" name="ds-r" checked> 合併</label>
+            <label class="check"><input type="radio" name="ds-r"> 分開</label>
+            <label class="check"><input type="checkbox" disabled> 停用</label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ds-section" id="selection">
+      <h2>篩選、分段、頁籤</h2>
+      <p>頁籤換「畫面」，用底線；分段控制換同一區塊的「檢視」，用白底浮起；篩選鈕縮小「資料範圍」，選取時打勾。三者外觀刻意不同，避免一頁三層長得一樣的頁籤。</p>
+      <div class="ds-specimen">
+        <nav class="tabs" data-ds-group aria-label="頁籤範例"><a href="#selection" class="active">總覽</a><a href="#selection">生命徵象</a><a href="#selection">藥物</a><a href="#selection">檢驗與影像</a><a href="#selection">病歷</a></nav>
+        <div class="ds-row">
+          <nav class="subtabs" data-ds-group aria-label="分段範例"><a href="#selection" class="active">檢驗數值 <span class="tab-count">86</span></a><a href="#selection">檢查報告 <span class="tab-count">5</span></a></nav>
+        </div>
+        <div class="ds-row" data-ds-group>
+          <a class="filter-chip active" href="#selection">全部</a><a class="filter-chip" href="#selection">201</a><a class="filter-chip" href="#selection">202</a><a class="filter-chip" href="#selection">203</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="ds-section" id="status">
+      <h2>狀態標籤</h2>
+      <p>標籤只說狀態，不能點。顏色依語意：警示用琥珀、危險用紅、資訊用藍、DNR 用深色實底以免與一般標籤混淆。</p>
+      <div class="ds-specimen">
+        <div class="ds-row">
+          <span class="bed-number">201A</span>
+          <span class="pill">有效</span><span class="pill warning">待接收</span><span class="pill danger">已停止</span><span class="pill info">HIS</span><span class="pill muted">草稿</span>
+          <span class="flag-pill tone-warning">接觸隔離</span><span class="flag-pill tone-info">中心導管</span><span class="flag-pill tone-dark">DNR 不施行心肺復甦</span>
+          <span class="nav-counter" style="margin:0">5</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="ds-section" id="feedback">
+      <h2>提示與 Toast</h2>
+      <p>提示（notice）放在內容裡、會一直留著，用來說明這一區的狀態。Toast 是剛做完的動作結果：從畫面下方浮出，成功 5 秒後淡出，錯誤留到按關閉或換頁。</p>
+      <div class="ds-specimen">
+        <p class="notice">示範資料：病人與帳號皆為虛構，不可用於臨床照護。</p>
+        <p class="notice success">已接收 3 份交班。</p>
+        <p class="notice warning">過渡期：修改需重新簽核，未核准項目保留可更正到 09-02。</p>
+        <p class="notice error">儲存失敗：缺少主要護理師。</p>
+        <div class="ds-row">
+          <button type="button" class="secondary" data-ds-toast="success" data-text="已儲存病程紀錄" data-close="關閉">播放成功 Toast</button>
+          <button type="button" class="secondary" data-ds-toast="error" data-text="請填寫會診原因與問題" data-close="關閉">播放錯誤 Toast</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="ds-section" id="data">
+      <h2>表格與卡片</h2>
+      <p>表頭淡底、列間細線，hover 整列淡綠；異常值用危險底色加 ▲▼，不只靠顏色。卡片白底、細框、極淡陰影；不再加彩色上緣。</p>
+      <div class="ds-specimen">
+        <table class="dense-table">
+          <thead><tr><th>檢驗項目</th><th class="col-num">2026-08-31</th><th class="col-num">2026-08-30</th><th class="col-num">2026-08-28</th></tr></thead>
+          <tbody>
+            <tr><td><b>Potassium</b><br><small>mmol/L · 參考 3.4 - 4.5</small></td><td>4.0</td><td>4.3</td><td class="lab-cell abnormal">5.2 ▲</td></tr>
+            <tr><td><b>Sodium</b><br><small>mmol/L · 參考 136 - 145</small></td><td>137</td><td>142</td><td>140</td></tr>
+            <tr><td><b>PaCO₂</b><br><small>mmHg · 參考 35 - 45</small></td><td class="lab-cell abnormal">31 ▼</td><td>37</td><td>41</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ds-specimen">
+        <section class="card"><div class="row between"><h2>本班照護團隊</h2><span class="pill muted">2 人</span></div><p class="muted">卡片標題 16px 半粗，右側放計數或一顆次要動作。</p></section>
+        <div class="empty">目前沒有待簽署的醫囑草稿。</div>
+      </div>
+    </section>
+
+    <section class="ds-section" id="rules">
+      <h2>使用規則</h2>
+      <div class="ds-rules">
+        <div class="ds-specimen ds-do"><h3>要</h3><ul>
+          <li>新樣式先找 token；沒有合適的再提出新增，不要寫原始色碼或 px 字級。</li>
+          <li>共用元件寫在 <code>components.css</code>；單一畫面的版面留在 <code>app.css</code>。</li>
+          <li>只有圖示的按鈕加 <code>aria-label</code> 與 <code>title</code>（兩者都會被翻譯）。</li>
+          <li>表格中的病人名、醫囑名用文字色連結，hover 才出底線。</li>
+          <li>危險與警示同時給圖示或文字，不只靠顏色。</li>
+        </ul></div>
+        <div class="ds-specimen ds-dont"><h3>不要</h3><ul>
+          <li>同一區塊放兩顆以上實心主色按鈕。</li>
+          <li>把規格說明或操作說明長段寫在畫面上；說明放 PRD，畫面只留一句提示。</li>
+          <li>用 <code>!important</code> 蓋掉元件；需要例外就在 components 層加一條有名字的變體。</li>
+          <li>超過 320ms 的動畫，或為了好看而動的東西。</li>
+          <li>新增第二套頁籤樣式；只有頁籤、分段、篩選三種。</li>
+        </ul></div>
+      </div>
+    </section>
+  </main>
+</div>
+<div id="message" role="status" aria-live="polite"></div>
+<script src="assets/icons.js"></script>
+<script src="assets/design-system.js"></script>
+</body>
+</html>

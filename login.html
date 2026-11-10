@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Staff Sign-In | EMR · Smart MDT</title>
+<link rel="icon" href="assets/icon.png">
+<link rel="stylesheet" href="assets/tokens.css?v=p4">
+<link rel="stylesheet" href="assets/components.css?v=p4">
+<link rel="stylesheet" href="assets/login.css?v=p4">
+<link rel="stylesheet" href="assets/demo-brand.css?v=p4">
+</head>
+<body>
+<a href="#login-form" class="skip">Skip to sign-in form</a>
+<main class="login-shell">
+  <section class="brand-panel" aria-label="System">
+    <div class="brand-product"><span class="product-mark" aria-hidden="true"><img src="assets/brand-icon.svg" alt=""></span><b>EMR · Smart MDT</b></div>
+    <div class="brand-story">
+      <p class="brand-kicker">EMR + MDT demo</p>
+      <p class="brand-headline">One record, from the ward to the tumour board</p>
+      <p class="brand-steps">Propose · Prepare · Decide · Follow up</p>
+    </div>
+    <div class="brand-signal" aria-hidden="true">
+      <svg class="brand-pulse" viewBox="0 0 560 96" fill="none" focusable="false">
+        <defs><linearGradient id="pulse-gradient" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#4eabdb" stop-opacity="0.2"/><stop offset="0.45" stop-color="#4eabdb"/><stop offset="1" stop-color="#9cce4f"/></linearGradient></defs>
+        <path pathLength="1" d="M0 60H150l10-14 10 14h44l12-40 16 72 14-52 9 20h96l8-10 10 10H548" stroke="url(#pulse-gradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="548" cy="60" r="4.5" fill="#9cce4f"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="login-panel">
+    <form id="login-form" class="login-card" novalidate autocomplete="on">
+      <div class="lang-switch" data-lang-switch data-no-i18n></div>
+      <header class="card-head">
+        <h1>Staff Sign-In</h1>
+        <p>Sign in with an account approved by the hospital.</p>
+      </header>
+
+      <p class="sso-note">
+        <span class="sso-tag">SSO</span>
+        Your username and password are verified by the hospital's central account system (Single Sign-On). You do not need to register an account on this site &mdash; accounts are issued by the hospital.
+      </p>
+
+      <div id="login-alert" class="alert" role="alert" hidden></div>
+
+      <div class="step" data-step="credentials">
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" autocomplete="username" autocapitalize="off" spellcheck="false" required aria-describedby="username-hint username-error">
+        <p id="username-hint" class="hint">Staff ID or hospital account</p>
+        <p id="username-error" class="field-error" hidden></p>
+
+        <label for="password">Password</label>
+        <div class="password-wrap">
+          <input id="password" name="password" type="password" autocomplete="current-password" required aria-describedby="password-error">
+          <button type="button" id="toggle-password" class="ghost" aria-pressed="false" aria-controls="password">Show</button>
+        </div>
+        <p id="password-error" class="field-error" hidden></p>
+
+        <div class="options">
+          <label class="check"><input type="checkbox" id="remember" name="remember"><span>Remember my username (password is never saved)</span></label>
+        </div>
+
+        <button type="submit" id="submit" class="primary">Sign in</button>
+        <p class="lock-timer" id="lock-timer" hidden aria-hidden="true"></p>
+        <p class="help-line">Forgot your password? Password resets are handled by the hospital &mdash; contact the IT Service Desk <span class="tbd">(contact details to be provided by the hospital)</span>.</p>
+      </div>
+
+      <details class="demo-accounts">
+        <summary>Demo accounts (local prototype, no real authentication)</summary>
+        <table>
+          <thead><tr><th scope="col">Username</th><th scope="col">Role</th><th scope="col">Shift</th></tr></thead>
+          <tbody id="demo-account-rows"></tbody>
+        </table>
+        <p>Any non-empty password is accepted. Role codes (doctor, nurse&hellip;) also work.</p>
+      </details>
+    </form>
+    <p class="foot">Demo environment: patients and accounts are fictitious and this page is not connected to the hospital's authentication service. Sign-in auditing records only success or failure, the operator and the workstation; passwords are never written to any log or URL. &middot; <a href="index.html#view=home">Open the workstation directly</a></p>
+  </section>
+<p class="login-links" style="text-align:center;margin:12px 0 0;font-size:14px"><a href="guide.html">One-page guide ／ 一頁操作說明</a> · <a href="index.html?tour=1#view=overview&amp;p=P03&amp;actor=mercer">Start guided tour ／ 導覽模式</a></p></main>
+<script src="assets/demo-config.js?v=p4"></script>
+<script src="assets/i18n-dict.js?v=p4"></script>
+<script src="assets/demo-dict.js?v=p4"></script>
+<script src="assets/i18n.js?v=p4"></script>
+<script src="assets/timezone.js?v=p4"></script>
+<script src="assets/staff-seed.js?v=p4"></script>
+<script src="assets/login.js?v=p4"></script>
+</body>
+</html>

@@ -1,112 +1,173 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
-<title>EMR · Smart MDT demo · one-page guide</title><link rel="icon" href="assets/icon.png">
+<title>EMR · Smart MDT demo · tester guide</title><link rel="icon" href="assets/icon.png">
 <style>
 :root{--brand:#148d68;--ink:#123e34;--text:#223b37;--muted:#5c6f69;--line:#dce7e1;--bg:#f3f7f5;--lime:#94c83d;--blue:#007eaa}
 *{box-sizing:border-box}body{margin:0;font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,'Noto Sans TC','Microsoft JhengHei',sans-serif;color:var(--text);background:var(--bg);line-height:1.55}
 header.top{background:var(--ink);color:#fff;padding:28px 32px}header.top .lockup{display:flex;align-items:center;gap:14px}header.top img{width:40px;height:42px;background:#fff;border-radius:10px;padding:4px}
 header.top h1{margin:0;font-size:22px}header.top p{margin:4px 0 0;color:#c6dfd2;font-size:14px}
-main{max-width:1100px;margin:0 auto;padding:24px 32px 60px;display:grid;gap:20px}
+main{max-width:1180px;margin:0 auto;padding:24px 32px 60px;display:grid;gap:20px}
 section{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 22px}h2{margin:0 0 10px;font-size:18px;color:var(--ink)}h3{margin:16px 0 6px;font-size:15px}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:20px}@media(max-width:900px){.two{grid-template-columns:1fr}main{padding:16px}}
-table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--muted);font-weight:600;font-size:13px}
-code,kbd{background:#eef3f0;border-radius:4px;padding:1px 5px;font-size:13px}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--muted);font-weight:600;font-size:13px;background:#f7faf8}
+code,kbd{background:#eef3f0;border-radius:4px;padding:1px 5px;font-size:13px}kbd{border:1px solid var(--brand);color:#0d5a41;background:#fff;font-weight:600}
 .pill{display:inline-block;border-radius:999px;padding:1px 9px;font-size:12px;font-weight:700;background:#e7f3ec;color:#206143;margin-left:6px}
 .pill.warn{background:#fff0d4;color:#70400b}.pill.muted{background:#eef1f4;color:#4a5b66}
-ol.steps{padding-left:20px;margin:6px 0}ol.steps li{margin:4px 0}ol.steps b{color:var(--ink)}
+ol.steps{padding-left:20px;margin:6px 0}ol.steps li{margin:4px 0}ol.steps b{color:var(--ink)}ul{margin:6px 0;padding-left:20px}li{margin:3px 0}
 a.button{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;border-radius:8px;padding:8px 14px;font-weight:600;margin:4px 8px 4px 0}a.button.secondary{background:#fff;color:var(--brand);border:1px solid var(--brand)}
 .zh{color:var(--text)}.note{color:var(--muted);font-size:13px}
+.type{background:#fff7e6;border:1px solid #f0d9a8;border-radius:6px;padding:1px 6px;font-size:12px;color:#5a4208}
+.needs{color:#8c2b1b;font-size:12px}
+.panel{display:grid;grid-template-columns:1fr 1fr;gap:12px}.panel div{border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:14px}.panel b{color:var(--ink)}
+.steps-table td:first-child{white-space:nowrap;font-weight:700;color:var(--ink)}
 footer{color:var(--muted);font-size:12px;text-align:center;padding:12px}
 </style></head><body>
-<header class="top"><div class="lockup"><img src="assets/brand-icon.svg" alt=""><div><h1>EMR · Smart MDT demo — one-page guide ／ 一頁操作說明</h1><p>Demo Hospital · Oncology · pure front-end, no server · all patients, staff and data are fictitious ／ 純前端、無伺服器，所有病人、人員、資料全部虛構</p></div></div></header>
+<header class="top"><div class="lockup"><img src="assets/brand-icon.svg" alt=""><div><h1>EMR · Smart MDT demo — tester guide ／ 測試者操作說明</h1><p>Demo Hospital · Oncology · runs entirely in your browser, no server · all patients, staff and data are fictitious ／ 全部在瀏覽器裡執行、無伺服器，所有病人、人員、資料全部虛構</p></div></div></header>
 <main>
-<section><h2>1 · Open the demo ／ 開啟</h2>
-<div class="two"><div><ul><li>Double-click <code>index.html</code> (works from a folder or USB stick), or serve the <code>demo</code> folder with any static server.</li><li>Language: <b>EN</b> / <b>中文</b> at the top right. Default English.</li><li>Roles: use the account menu (top right) → <b>Switch role</b>, or put <code>actor=&lt;key&gt;</code> in the URL. No passwords.</li><li>Start the guided tour: <a href="index.html?tour=1#view=overview&p=P03&actor=mercer">index.html?tour=1</a> — a panel at the bottom left walks through both routes step by step; the panel at the bottom right collects your feedback per page.</li></ul></div>
-<div class="zh"><ul><li>雙擊 <code>index.html</code> 即可開（資料夾或隨身碟皆可），或用任何靜態伺服器掛 <code>demo</code> 資料夾。</li><li>右上角切換 <b>EN</b>／<b>中文</b>，預設英文。</li><li>身分：右上角帳號選單 →「Switch role」，或在網址加 <code>actor=&lt;帳號鍵&gt;</code>；沒有密碼。</li><li>導覽模式：<a href="index.html?tour=1#view=overview&p=P03&actor=mercer">index.html?tour=1</a> — 左下角面板逐步帶看兩條故事線；右下角面板收集每一頁的回饋。</li></ul></div></div>
-<p><a class="button" href="index.html?tour=1#view=overview&p=P03&actor=mercer">Start route A · Margaret Ellis (MDT)</a><a class="button secondary" href="index.html?tour=1#view=notes&careWork=team&p=P06&actor=mercer">Start route B · Harold Whitmore (case conference)</a></p></section>
 
-<section><h2>2 · Accounts ／ 身分（URL <code>actor=</code>）</h2>
-<table><thead><tr><th>Key</th><th>Name</th><th>Role in the story ／ 故事中的角色</th></tr></thead><tbody>
-<tr><td><code>mercer</code></td><td>Dr. Daniel Mercer</td><td>Medical oncology attending of A03 / A06 · proposer, adopts and orders ／ 主治、提案與採納開單</td></tr>
-<tr><td><code>ashford</code></td><td>Dr. Richard Ashford</td><td>Head of Breast Surgery · breast cancer team chair ／ 乳癌團隊主席</td></tr>
-<tr><td><code>brooks</code></td><td>Dr. Hannah Brooks</td><td>Resident · MDT / case conference secretary ／ 秘書</td></tr>
-<tr><td><code>whitfield</code></td><td>Grace Whitfield, RN</td><td>Case coordinator · MDT coordinator ／ 協調人</td></tr>
-<tr><td><code>hartley</code></td><td>Dr. William Hartley</td><td>Head of Medical Oncology · approves and chairs case conferences ／ 科主任</td></tr>
-<tr><td><code>blake</code></td><td>Susan Blake, RN</td><td>Head Nurse · department coordinator (schedules case conferences) ／ 護理長、科內協調人</td></tr>
-<tr><td><code>price</code> · <code>webb</code> · <code>finch</code> · <code>cole</code> · <code>hale</code> · <code>kemp</code> · <code>grant</code></td><td>Dr. Price (Imaging) · Dr. Webb (Pathology) · Dr. Finch (Radiation Oncology) · Dr. Cole (Nuclear Medicine) · Dr. Hale (Plastic Surgery) · Dr. Kemp · Dr. Grant</td><td>Team members ／ 團隊成員</td></tr>
-<tr><td><code>lowry</code> · <code>morgan</code> · <code>wheeler</code> · <code>booth</code></td><td>Megan Lowry, RD · Alice Morgan, PharmD · James Wheeler, PT · Natalie Booth, MSW</td><td>Allied health: nutrition, clinical pharmacy, physiotherapy, social work — My to-dos is their consult worklist ／ 職類：待辦即照會工作清單</td></tr>
-<tr><td><code>carter</code> · <code>fletcher</code> · <code>shaw</code> · <code>quinn</code></td><td>Nurses</td><td>Administration records ／ 護理師</td></tr>
-<tr><td><code>marsh</code></td><td>Dr. Fiona Marsh</td><td>Cardiology consultant (overdue consult) ／ 心臟內科會診</td></tr>
-<tr><td><code>admin</code></td><td>Paul Nielsen</td><td>Administrator · maintenance settings (read-only MDT tabs) ／ 管理者</td></tr></tbody></table></section>
-
-<section><h2>3 · Route A — Team meeting (MDT) · Margaret Ellis (A03) ／ A 線 團隊會議</h2>
-<div class="two"><div><ol class="steps">
-<li><b>mercer</b> · Overview A03: the MDT card shows the proposal draft (from the adopted consult) and data readiness 6/8.</li>
-<li><b>mercer</b> · Consults &amp; care › Specialist consult: CS-1102-04 adopted → “Open MDT proposal draft”.</li>
-<li><b>mercer</b> · Proposal: team suggested from the diagnosis, session W44, question from the consult → submit (late → coordinator confirms).</li>
-<li><b>whitfield</b> · This week’s agenda: case #1 → “Confirm for agenda”.</li>
-<li><b>mercer</b> · Summary pack: record patient wishes → 7/8 (only LVEF missing).</li>
-<li><b>price</b> · Pre-meeting input (optional): fill and send the imaging pre-fill.</li>
-<li><b>whitfield</b> · Pre-fill overview: 7/8 sent, tallies, points for discussion, reminders.</li>
-<li><b>brooks</b> · Agenda: Demo controls → 11-04 14:00 → “Start the meeting”.</li>
-<li><b>brooks</b> · Record: B.3 brought in from pre-fills (edits show as diff), B.4 conclusion, action plan.</li>
-<li><b>ashford</b> · Confirm own opinion → “Confirm and lock record v1” → tasks + excerpt in the record.</li>
-<li><b>brooks</b> · Print preview (A4).</li>
-<li><b>finch</b> · Follow-up tasks: receive the radiotherapy task.</li>
-<li><b>mercer</b> · Receive task 1 → “Order per conclusion” → doxorubicin 60 mg/m² (BSA 1.60 → 96 mg) → confirm → task “Adopted · ordered”.</li>
-<li><b>hartley</b> · Dashboard (live + eight-week demo figures); Demo controls can return the echo report → 8/8.</li></ol></div>
-<div class="zh"><ol class="steps">
-<li><b>mercer</b> · A03 總覽：MDT 卡顯示提案草稿（由照會採納產生）、資料齊備 6/8。</li>
-<li><b>mercer</b> · 照護 › 專科照會：CS-1102-04 已採納 →「Open MDT proposal draft」。</li>
-<li><b>mercer</b> · 提案：團隊依診斷建議、會期 W44、問題由照會帶入 → 送出（逾截止 → 協調人確認）。</li>
-<li><b>whitfield</b> · 本週議程：第 1 案 →「Confirm for agenda」。</li>
-<li><b>mercer</b> · 摘要包：填病人意願 → 7/8（只缺 LVEF）。</li>
-<li><b>price</b> · 會前預填（選配）：填寫並送出影像科預填。</li>
-<li><b>whitfield</b> · 預填總表：7/8 已送、票數、會中待討論、提醒未填。</li>
-<li><b>brooks</b> · 議程：Demo controls → 11-04 14:00 →「Start the meeting」。</li>
-<li><b>brooks</b> · 紀錄：B.3 由預填帶入（修改標差異）、B.4 結論、處置計畫。</li>
-<li><b>ashford</b> · 確認自己的意見 →「Confirm and lock record v1」→ 任務＋摘錄進病歷。</li>
-<li><b>brooks</b> · 列印預覽（A4）。</li>
-<li><b>finch</b> · 交接追蹤：接收放腫任務。</li>
-<li><b>mercer</b> · 接收任務 1 →「Order per conclusion」→ doxorubicin 每 m² 60（BSA 1.60 → 96 mg）→ 確認 → 任務「已採納開單」。</li>
-<li><b>hartley</b> · 儀表板（即時＋八週示範數字）；Demo controls 可讓心臟超音波回報 → 8/8。</li></ol></div></div></section>
-
-<section><h2>4 · Route B — Case conference · Harold Whitmore (A06) ／ B 線 個案跨團隊會議</h2>
-<div class="two"><div><ol class="steps">
-<li><b>mercer</b> · Consults &amp; care › Allied-health consult: four template-based consults; request form with template items and auto-filled data.</li>
-<li><b>booth</b> · My to-dos = Social Work worklist: complete RF-1103-04 (flag: difficult discharge), sign and send.</li>
-<li><b>mercer</b> · Team overview: meeting prompt met (4 ≥ 3, difficult discharge); reply cards with the attending’s decisions → “Start case conference”.</li>
-<li><b>mercer</b> · Decision to convene: pre-filled details; level determined by the system (within-department) → send for approval.</li>
-<li><b>hartley</b> · Case meetings → request → “Approve the request”.</li>
-<li><b>blake</b> · Request → confirm time → invitations sent.</li>
-<li><b>brooks</b> · Record: B.3 brings in the allied-health replies; conclusion + plan → send to chair. <b>hartley</b> → “Confirm and lock” → tasks, excerpt, family meeting auto-scheduled.</li>
-<li><b>mercer</b> · Family meeting: attendees pre-filled, points cite the conclusion; decisions and open items; family representative confirmation + attending e-signature → completed 2/2.</li>
-<li><b>admin</b> · Maintenance settings: Consult forms, Levels &amp; signatures (read-only).</li></ol></div>
-<div class="zh"><ol class="steps">
-<li><b>mercer</b> · 照護 › 職類照會：四張範本式照會；開單表單有範本勾選項與系統帶入。</li>
-<li><b>booth</b> · 待辦＝社工工作清單：完成 RF-1103-04（註記困難出院）簽名送出。</li>
-<li><b>mercer</b> · 團隊總覽：召開提示成立（4 ≥ 3、困難出院）；回覆卡含主治決定 →「Start case conference」。</li>
-<li><b>mercer</b> · 召開判斷：細節已帶入；層級由系統判定（科內）→ 送核准。</li>
-<li><b>hartley</b> · 個案會議 → 申請 →「Approve the request」。</li>
-<li><b>blake</b> · 申請 → 確認時間 → 送邀請。</li>
-<li><b>brooks</b> · 紀錄：B.3 帶入職類回覆；結論＋計畫 → 送主席。<b>hartley</b> →「Confirm and lock」→ 任務、摘錄、自動排家庭會議。</li>
-<li><b>mercer</b> · 家庭會議：出席帶入、說明引用結論；決定與待辦；家屬代表確認＋主治電子簽 → 完成 2/2。</li>
-<li><b>admin</b> · 維護設定：照會表單、會診層級與簽章（唯讀）。</li></ol></div></div></section>
-
-<section><h2>5 · Terms, controls and limits ／ 用詞、示範控制、限制</h2>
+<section><h2>1 · What this is and how to start ／ 這是什麼、怎麼開始</h2>
 <div class="two"><div>
-<h3>Six fixed terms</h3><table><tbody><tr><td>Specialist consult</td><td>專科照會 — doctor to doctor, consultant can order</td></tr><tr><td>Allied-health consult</td><td>職類照會 — nutrition, pharmacy, rehabilitation, social work; template-based, orders only after the attending adopts</td></tr><tr><td>Multi-physician consultation</td><td>院內會診 — several attendees, chair and secretary; read-only records in this demo</td></tr><tr><td>Team meeting (MDT)</td><td>團隊會議 MDT — standing tumour board with weekly agenda</td></tr><tr><td>Case conference</td><td>個案跨團隊會議 — started by the attending from the team overview</td></tr><tr><td>Family meeting</td><td>家庭會議 — separate record with role-based signatures</td></tr></tbody></table>
-<h3>Demo controls (MDT page, top)</h3><p class="note">Jump the demo clock (meeting time, case conference, family meeting, treatment day) or return the echocardiography report. Any role can use them; they are demo tools, not product functions. “Restart demo data” in the tour panel resets this browser’s demo state (feedback is kept).</p>
-<h3>Limits</h3><ul class="note"><li>All data is fictitious; nothing is sent anywhere (no network calls).</li><li>MDT write actions are for demonstration only and are not part of the phase 1 scope.</li><li>AI assistance, remote MDT, automatic enrolment and PACS images are listed only as roadmap.</li><li>Vietnamese interface strings for the MDT module are not included; EN and 中文 only.</li></ul></div>
-<div class="zh">
-<h3>六個固定用詞</h3><table><tbody><tr><td>專科照會</td><td>醫師對醫師，受照會醫師可開醫囑</td></tr><tr><td>職類照會</td><td>營養、藥學、復健、社工；範本式，建議經主治採納才成醫囑</td></tr><tr><td>院內會診</td><td>多人出席、有主席與秘書；demo 只展示紀錄</td></tr><tr><td>團隊會議 MDT</td><td>常設腫瘤團隊，每週議程</td></tr><tr><td>個案跨團隊會議</td><td>由主治從團隊總覽啟動</td></tr><tr><td>家庭會議</td><td>另立紀錄，依角色簽名</td></tr></tbody></table>
-<h3>示範控制（MDT 頁頂）</h3><p class="note">跳示範時鐘（開會、個案會議、家庭會議、治療日）或讓心臟超音波報告回來；任何身分都能按；是示範工具，不是功能。導覽面板的「Restart demo data」會重置這台瀏覽器的示範狀態（回饋保留）。</p>
-<h3>限制</h3><ul class="note"><li>資料全部虛構；不對外傳送任何資料（沒有網路呼叫）。</li><li>MDT 寫入功能僅供示範，不代表一期交付範圍。</li><li>AI 輔助、遠距 MDT、自動排入與 PACS 影像只列為 roadmap。</li><li>MDT 模組沒有越南文字串；只有 EN 與中文。</li></ul></div></div></section>
+<p>A clickable demo of an EMR with a Smart MDT module. Two stories are prepared: <b>Route A</b> — a breast-cancer case goes from a specialist consult to the weekly team meeting (MDT), the locked record and the hand-off tasks; <b>Route B</b> — a difficult-discharge case goes from allied-health consults to a case conference and a family meeting. A guided tour walks you through both, one step at a time.</p>
+<ul><li>Use Chrome or Edge on a laptop or desktop (a wide screen helps).</li><li>Everything you do is saved <b>only in this browser</b>. Another browser or computer starts fresh.</li><li>Language: <b>EN</b> / <b>中文</b> at the top right. The tour and all button names follow the language you choose.</li><li>There are no passwords. The tour switches roles for you.</li></ul>
+<p><a class="button" href="index.html?tour=1#view=overview&p=P03&encounter=ENC-P03&actor=mercer">Start route A · Margaret Ellis (team meeting)</a><a class="button secondary" href="index.html?tour=1#view=notes&careWork=allied&p=P06&encounter=ENC-P06&actor=mercer">Start route B · Harold Whitmore (case conference)</a></p>
+</div><div class="zh">
+<p>這是一個可點擊的 EMR＋Smart MDT 示範。準備了兩條故事線：<b>A 線</b>：一位乳癌病人從專科照會、排入每週團隊會議（MDT）、鎖定會議紀錄到交接任務；<b>B 線</b>：一位困難出院病人從職類照會、個案跨團隊會議到家庭會議。導覽模式會一步一步帶你走完。</p>
+<ul><li>請用筆電或桌機的 Chrome 或 Edge（畫面寬一點比較好看）。</li><li>你做的所有操作<b>只存在這個瀏覽器</b>；換瀏覽器或換電腦會從頭開始。</li><li>右上角切換 <b>EN</b>／<b>中文</b>；導覽文字和按鈕名稱會跟著你選的語言。</li><li>沒有密碼；導覽會幫你切換身分。</li></ul>
+<p><a class="button" href="index.html?tour=1#view=overview&p=P03&encounter=ENC-P03&actor=mercer">開始 A 線 · Margaret Ellis（團隊會議）</a><a class="button secondary" href="index.html?tour=1#view=notes&careWork=allied&p=P06&encounter=ENC-P06&actor=mercer">開始 B 線 · Harold Whitmore（個案會議）</a></p>
+</div></div></section>
 
-<section><h2>6 · Feedback ／ 回饋</h2>
-<div class="two"><div><p>On every page, the <b>Feedback</b> panel (bottom right) lets you mark the page <span class="pill">Fits our workflow</span> <span class="pill warn">Needs change</span> <span class="pill muted">Not needed</span> and leave a note. “All feedback” lists everything saved in this browser; <b>Export JSON / CSV</b> or <b>Copy as text</b> and send it back to us. The export holds only your verdicts and notes — no patient data.</p></div>
-<div class="zh"><p>每一頁右下角的 <b>Feedback</b> 面板可對該頁標記 <span class="pill">符合</span> <span class="pill warn">要改</span> <span class="pill muted">不需要</span> 並留意見。「All feedback」列出這台瀏覽器存的全部回饋；用 <b>Export JSON／CSV</b> 或 <b>Copy as text</b> 寄回給我們。匯出只含您的判斷與意見，沒有病人資料。</p></div></div></section>
+<section><h2>2 · The two floating panels ／ 兩個浮動面板</h2>
+<div class="two"><div>
+<h3>Guided tour (bottom left)</h3>
+<div class="panel">
+<div><b>A / B</b> — choose the route.</div>
+<div><b>3 / 14 · Switch to Dr. …</b> — which step you are on and which role it needs.</div>
+<div><b>Text</b> — what you see on the page and what to do.</div>
+<div><b>Click: <kbd>button name</kbd></b> — the exact buttons or links to press, in the current language, in order.</div>
+<div><b>✍ You type</b> — fields you must fill in yourself, with sample text. Buttons stay greyed out until required fields are filled.</div>
+<div><b>⚠ Needs step N</b> — this step only works if that earlier step was completed in this browser.</div>
+<div><b>Go to this step</b> — switches the role and opens the right page. Use it on every step, then follow the text.</div>
+<div><b>Previous / Next step · Back to start</b> — move through the tour; Back to start returns to step 1 of the route.</div>
+<div><b>ⓘ How demo time works</b> — shown on steps that need the demo clock (see section 3).</div>
+<div><b>Restart demo data</b> — wipes this browser’s demo changes and reloads (your feedback is kept).</div>
+</div>
+<p class="note"><b>Move the panel:</b> drag it by its title bar (or by the round button when collapsed) so it does not cover what you are working on. ↙ docks it back to the corner. The Feedback panel can be dragged the same way.</p>
+<h3>Feedback (bottom right)</h3><p>On any page, mark it <span class="pill">Fits our workflow</span> <span class="pill warn">Needs change</span> <span class="pill muted">Not needed</span>, add a note, press “Save for this page”. See section 7 for sending it back.</p>
+</div><div class="zh">
+<h3>導覽模式（左下角）</h3>
+<div class="panel">
+<div><b>A／B</b>：選故事線。</div>
+<div><b>3 / 14 · 切換身分 Dr. …</b>：現在第幾步、這一步要用哪個身分。</div>
+<div><b>文字</b>：這一頁會看到什麼、要做什麼。</div>
+<div><b>要按：<kbd>按鈕名稱</kbd></b>：要按的按鈕或連結，依目前語言顯示，照順序按。</div>
+<div><b>✍ 要自己填</b>：必須自己輸入的欄位，附範例文字。必填欄位沒填，按鈕會是灰的。</div>
+<div><b>⚠ 要先做完第 N 步</b>：這一步要在同一個瀏覽器先完成那一步才會有東西。</div>
+<div><b>前往這一步</b>：自動切換身分並打開正確的頁面。每一步都先按它，再照文字操作。</div>
+<div><b>上一步／下一步 · 回到起點</b>：在導覽裡移動；回到起點會回到這條線的第 1 步。</div>
+<div><b>ⓘ 示範時間怎麼用</b>：需要調示範時鐘的步驟會出現（見第 3 節）。</div>
+<div><b>重置示範資料</b>：清掉這個瀏覽器的示範變更並重新載入（回饋會保留）。</div>
+</div>
+<p class="note"><b>移動面板：</b>抓住標題列（收合時抓圓鈕）拖曳，就不會擋到要操作的畫面；↙ 可歸位到角落。回饋面板也可以同樣拖曳。</p>
+<h3>回饋（右下角）</h3><p>任何一頁都可以標記 <span class="pill">符合</span> <span class="pill warn">要改</span> <span class="pill muted">不需要</span>，寫意見，按「儲存這一頁」。怎麼寄回見第 7 節。</p>
+</div></div></section>
+
+<section><h2>3 · Demo time (the demo clock) ／ 示範時間（示範時鐘）</h2>
+<div class="two"><div>
+<p>The demo does not use your computer’s clock. It has its own clock that starts at <b>2026-11-04 09:40</b>, the morning before the breast team meets at 14:00. Anything that depends on time — starting the meeting, holding the case conference, the family meeting, a report coming back — only becomes possible once the demo clock has reached that moment. That is why some buttons do not exist until you move the clock.</p>
+<p><b>How to move it:</b> at the top of every MDT page there is a grey, collapsed line <b>“Demo controls · demo time 2026-11-04 09:40”</b>. Click it to expand, then press a jump button:</p>
+<ul><li><kbd>MDT meeting · 11-04 14:00</kbd> — route A, before “Start the meeting” (step 8).</li><li><kbd>Case conference · 11-05 07:50</kbd> and <kbd>Family meeting · 11-05 13:30</kbd> — route B, if a record or signature button is not offered yet.</li><li><kbd>Treatment day · 11-06 09:30</kbd> — optional, to see the chemotherapy administration day.</li><li><kbd>Receive echo report (LVEF 60%) · 11-05 08:50</kbd> — optional, returns the cardiac report so Margaret’s readiness becomes 8/8.</li></ul>
+<p class="note">The clock only moves forward; a jump button turns grey once that time has passed. “Restart demo data” brings the clock back to the start. Any role can use the demo controls; they are demo tools, not product functions.</p>
+</div><div class="zh">
+<p>demo 不用你電腦的時間，它有自己的時鐘，從 <b>2026-11-04 09:40</b> 開始，也就是乳癌團隊 14:00 開會那天的早上。所有跟時間有關的事：開始會議、召開個案會議、家庭會議、報告回來，都要等示範時鐘走到那個時間才能做。所以有些按鈕在你調時鐘之前是不會出現的。</p>
+<p><b>怎麼調：</b>每個 MDT 頁面最上方有一行灰色、收合的 <b>「示範控制 · 示範時間 2026-11-04 09:40」</b>。點它展開，再按跳轉按鈕：</p>
+<ul><li><kbd>MDT 會議 · 11-04 14:00</kbd>：A 線，按「開始會議」之前（第 8 步）。</li><li><kbd>個案會議 · 11-05 07:50</kbd>、<kbd>家庭會議 · 11-05 13:30</kbd>：B 線，如果紀錄或簽名的按鈕還沒出現時用。</li><li><kbd>治療日 · 11-06 09:30</kbd>：可選，看化療給藥日。</li><li><kbd>收到心臟超音波報告（LVEF 60%）· 11-05 08:50</kbd>：可選，讓心臟報告回來，Margaret 的資料齊備變 8/8。</li></ul>
+<p class="note">時鐘只能往前；過了的時間按鈕會變灰。「重置示範資料」會把時鐘帶回起點。任何身分都能用示範控制；它是示範工具，不是產品功能。</p>
+</div></div></section>
+
+<section><h2>4 · Route A — Team meeting (MDT) · Margaret Ellis (A03) ／ A 線 團隊會議</h2>
+<p class="note">Do the steps in order in the same browser. <span class="type">✍</span> = you must type something. ／ 請在同一個瀏覽器依序做。<span class="type">✍</span>＝要自己填。</p>
+<table class="steps-table"><thead><tr><th>#</th><th>Role ／ 身分</th><th>Page ／ 頁面</th><th>What to do ／ 做什麼</th></tr></thead><tbody>
+<tr><td>1</td><td>mercer</td><td>Overview A03 ／ 總覽</td><td>Look: the “Team meeting (MDT)” card shows the proposal draft and readiness 6/8. ／ 只看：MDT 卡顯示提案草稿、齊備 6/8。</td></tr>
+<tr><td>2</td><td>mercer</td><td>Consults &amp; care › Specialist consult ／ 照護 › 專科照會</td><td>In the Breast Surgery card (CS-1102-04) click <kbd>Open MDT proposal draft</kbd> ／ 乳房外科照會卡點 <kbd>開啟 MDT 提案草稿</kbd>。</td></tr>
+<tr><td>3</td><td>mercer</td><td>Proposal ／ 提案頁</td><td>Keep “Submit to the agenda now” ticked → <kbd>Save / submit proposal</kbd>. ／ 保持「立即送出排入議程」→ <kbd>儲存／送出提案</kbd>。</td></tr>
+<tr><td>4</td><td>whitfield</td><td>This week’s agenda ／ 本週議程</td><td>Row 1 (tag “Late · awaiting coordinator”), last column → <kbd>Confirm for agenda</kbd>. <span class="needs">needs 3</span> ／ 第 1 列最後一欄 → <kbd>確認排入議程</kbd>。<span class="needs">要先做第 3 步</span></td></tr>
+<tr><td>5</td><td>mercer</td><td>Summary pack ／ 摘要包</td><td><span class="type">✍</span> Patient wishes → <kbd>Save</kbd> → 7/8. ／ 填病人意願 → <kbd>儲存</kbd> → 7/8。</td></tr>
+<tr><td>6</td><td>price</td><td>Pre-meeting input ／ 本人預填</td><td><span class="type">✍</span> Box 1 assessment, Q1–Q3, keep “Send pre-fill now” → <kbd>Save</kbd>. Others’ pre-fills unlock after sending. <span class="needs">needs 3</span> ／ 填第 1 格評估、Q1–Q3，保持「立即送出」→ <kbd>儲存</kbd>；送出後才看得到他科。<span class="needs">要先做第 3 步</span></td></tr>
+<tr><td>7</td><td>whitfield</td><td>Pre-fill overview ／ 預填總表</td><td>Sent 7/8 (6/8 if step 6 skipped; Dr. Cole never fills in); tallies; optional <kbd>Remind those who have not filled in</kbd>. ／ 已送出 7/8（跳過第 6 步則 6/8）；票數；可按提醒。</td></tr>
+<tr><td>8</td><td>brooks</td><td>Agenda ／ 本週議程</td><td>Expand “Demo controls” → <kbd>MDT meeting · 11-04 14:00</kbd> → in the session card <kbd>Start the meeting…</kbd>. ／ 展開示範控制 → <kbd>MDT 會議 · 11-04 14:00</kbd> → 會期卡 <kbd>開始會議…</kbd>。</td></tr>
+<tr><td>9</td><td>brooks</td><td>Discussion record ／ 討論紀錄</td><td><span class="type">✍</span> B.4 conclusion → <kbd>Save summary and conclusion</kbd>; action plan rows are pre-suggested (row 2 = Dr. Finch) → <kbd>Save action plan</kbd>. <span class="needs">needs 8</span> ／ 填 B.4 結論 → <kbd>儲存摘要與結論</kbd>；處置計畫已建議三列（第 2 列 Dr. Finch）→ <kbd>儲存處置計畫</kbd>。<span class="needs">要先做第 8 步</span></td></tr>
+<tr><td>10</td><td>ashford</td><td>Discussion record ／ 討論紀錄</td><td>B.3 own card → <kbd>Confirm pre-fill</kbd>; bottom → <kbd>Confirm and lock record v1</kbd>. <span class="needs">needs 9</span> ／ B.3 自己的卡 → <kbd>確認預填</kbd>；最下方 → <kbd>確認並鎖定紀錄 v1</kbd>。<span class="needs">要先做第 9 步</span></td></tr>
+<tr><td>11</td><td>brooks</td><td>Print preview ／ 列印預覽</td><td>Look (A4, neutral form name). ／ 只看。</td></tr>
+<tr><td>12</td><td>finch</td><td>Follow-up tasks ／ 交接追蹤</td><td>Task from plan row 2 → <kbd>Receive task</kbd>. <span class="needs">needs 10</span> ／ 第 2 列的任務 → <kbd>接收任務</kbd>。<span class="needs">要先做第 10 步</span></td></tr>
+<tr><td>13</td><td>mercer</td><td>Follow-up tasks ／ 交接追蹤</td><td>Task 1 → <kbd>Receive task</kbd> → <kbd>Order per conclusion</kbd> → <span class="type">✍</span> doxorubicin, dose mode “Per m²”, 60 → BSA 1.60 → 96 mg → confirm. Task becomes “Adopted · ordered”. <span class="needs">needs 10</span> ／ 任務 1 → <kbd>接收任務</kbd> → <kbd>依結論開立</kbd> → doxorubicin、每 m²、60 → 96 mg → 確認。<span class="needs">要先做第 10 步</span></td></tr>
+<tr><td>14</td><td>hartley</td><td>Dashboard ／ 儀表板</td><td>Live + eight-week demo figures; roadmap items. Optional: Demo controls → <kbd>Receive echo report…</kbd> → 8/8. ／ 即時＋八週示範數字；roadmap。可選：示範控制 → 收到心臟超音波報告 → 8/8。</td></tr>
+</tbody></table></section>
+
+<section><h2>5 · Route B — Case conference · Harold Whitmore (A06) ／ B 線 個案跨團隊會議</h2>
+<table class="steps-table"><thead><tr><th>#</th><th>Role ／ 身分</th><th>Page ／ 頁面</th><th>What to do ／ 做什麼</th></tr></thead><tbody>
+<tr><td>1</td><td>mercer</td><td>Consults &amp; care › Allied-health consult ／ 照護 › 職類照會</td><td>Look: four template-based consults; request form with template items and auto-filled data. ／ 只看：四張範本式照會；開單表單。</td></tr>
+<tr><td>2</td><td>booth</td><td>My to-dos ／ 待辦</td><td><span class="type">✍</span> Reply form for RF-1103-04 (tick flag “Difficult discharge”), keep “Sign and send now” → <kbd>Save</kbd>. ／ 填 RF-1103-04 回覆（勾「困難出院」），保持「立即簽名送出」→ <kbd>儲存</kbd>。</td></tr>
+<tr><td>3</td><td>mercer</td><td>Team overview ／ 團隊總覽</td><td>Meeting prompt met → <kbd>Start case conference</kbd>. <span class="needs">needs 2</span> ／ 召開提示成立 → <kbd>開始個案會議</kbd>。<span class="needs">要先做第 2 步</span></td></tr>
+<tr><td>4</td><td>mercer</td><td>Decision to convene ／ 召開判斷</td><td>Keep “Hold a meeting” → bottom button <kbd>Send request (Head of Department approval) / record decision</kbd>. ／ 維持「召開會議」→ 最下方送出按鈕。</td></tr>
+<tr><td>5</td><td>hartley</td><td>Case meetings ／ 個案會議</td><td>Open the new request → <kbd>Approve the request</kbd>. <span class="needs">needs 4</span> ／ 開啟新申請 → <kbd>核准申請</kbd>。<span class="needs">要先做第 4 步</span></td></tr>
+<tr><td>6</td><td>blake</td><td>Case meetings ／ 個案會議</td><td>Open the request → <kbd>Confirm time and send invitations</kbd>. <span class="needs">needs 5</span> ／ 開啟申請 → <kbd>確認時間並送邀請</kbd>。<span class="needs">要先做第 5 步</span></td></tr>
+<tr><td>7</td><td>brooks → hartley</td><td>Conference record ／ 會議紀錄</td><td><span class="type">✍</span> Conclusion → <kbd>Save summary and conclusion</kbd>; one plan row → <kbd>Save action plan</kbd>; <kbd>Send to chair for confirmation</kbd>. Switch to hartley → <kbd>Confirm and lock record v1</kbd>. If a button is missing, jump the clock to 11-05 07:50. <span class="needs">needs 6</span> ／ 填結論 → 儲存；一列計畫 → 儲存；送主席確認；切換 hartley → 確認並鎖定。按鈕沒出現就把時鐘跳到 11-05 07:50。<span class="needs">要先做第 6 步</span></td></tr>
+<tr><td>8</td><td>mercer</td><td>Family meeting ／ 家庭會議</td><td><span class="type">✍</span> Decisions → <kbd>Save family meeting record</kbd>; signatures: family representative <kbd>Record confirmation (SMS code)</kbd>, attending <kbd>Sign (e-signature)</kbd> → 2/2. If needed, jump the clock to 11-05 13:30. <span class="needs">needs 7</span> ／ 填決定 → 儲存；家屬代表記錄確認、主治電子簽 → 2/2。需要時時鐘跳到 11-05 13:30。<span class="needs">要先做第 7 步</span></td></tr>
+<tr><td>9</td><td>admin</td><td>Maintenance settings ／ 維護設定</td><td>Look: Levels &amp; signatures, Consult forms (read-only). ／ 只看：會診層級與簽章、照會表單。</td></tr>
+</tbody></table></section>
+
+<section><h2>6 · Accounts, terms and limits ／ 身分、用詞、限制</h2>
+<div class="two"><div>
+<h3>Accounts (URL <code>actor=</code>; the tour sets them for you)</h3>
+<table><tbody>
+<tr><td><code>mercer</code></td><td>Dr. Daniel Mercer — Medical Oncology attending of A03 / A06; proposes, adopts and orders</td></tr>
+<tr><td><code>ashford</code></td><td>Dr. Richard Ashford — Head of Breast Surgery; breast team chair</td></tr>
+<tr><td><code>brooks</code></td><td>Dr. Hannah Brooks — Resident; MDT / case conference secretary</td></tr>
+<tr><td><code>whitfield</code></td><td>Grace Whitfield, RN — case coordinator; MDT coordinator</td></tr>
+<tr><td><code>hartley</code></td><td>Dr. William Hartley — Head of Medical Oncology; approves and chairs case conferences</td></tr>
+<tr><td><code>blake</code></td><td>Susan Blake, RN — Head Nurse; schedules case conferences</td></tr>
+<tr><td><code>price</code> <code>webb</code> <code>finch</code> <code>cole</code> <code>hale</code> <code>kemp</code> <code>grant</code> <code>marsh</code></td><td>Team members: Imaging, Pathology, Radiation Oncology, Nuclear Medicine, Plastic Surgery, surgeons, Cardiology</td></tr>
+<tr><td><code>lowry</code> <code>morgan</code> <code>wheeler</code> <code>booth</code></td><td>Allied health: dietitian, pharmacist, physiotherapist, social worker — their My to-dos is the consult worklist</td></tr>
+<tr><td><code>carter</code> <code>fletcher</code> <code>shaw</code> <code>quinn</code></td><td>Nurses</td></tr>
+<tr><td><code>admin</code></td><td>Paul Nielsen — administrator; maintenance settings</td></tr></tbody></table>
+<h3>Six fixed terms</h3><table><tbody><tr><td>Specialist consult</td><td>doctor to doctor; the consultant can order</td></tr><tr><td>Allied-health consult</td><td>nutrition, pharmacy, rehabilitation, social work; template-based; orders only after the attending adopts</td></tr><tr><td>Multi-physician consultation</td><td>several attendees, chair and secretary; read-only records in this demo</td></tr><tr><td>Team meeting (MDT)</td><td>standing tumour board with a weekly agenda</td></tr><tr><td>Case conference</td><td>started by the attending from the team overview</td></tr><tr><td>Family meeting</td><td>separate record with role-based signatures</td></tr></tbody></table>
+<h3>Limits</h3><ul class="note"><li>All data is fictitious; nothing is sent anywhere (no network calls).</li><li>MDT write actions are for demonstration only and are not part of the phase 1 scope.</li><li>AI assistance, remote MDT, automatic enrolment and PACS images are listed only as roadmap.</li><li>EN and 中文 only; no Vietnamese strings for the MDT module.</li></ul>
+</div><div class="zh">
+<h3>身分（網址 <code>actor=</code>；導覽會自動設定）</h3>
+<table><tbody>
+<tr><td><code>mercer</code></td><td>Dr. Daniel Mercer：A03／A06 的腫瘤內科主治；提案、採納、開單</td></tr>
+<tr><td><code>ashford</code></td><td>Dr. Richard Ashford：乳房外科主任；乳癌團隊主席</td></tr>
+<tr><td><code>brooks</code></td><td>Dr. Hannah Brooks：住院醫師；MDT／個案會議秘書</td></tr>
+<tr><td><code>whitfield</code></td><td>Grace Whitfield, RN：個案管理師；MDT 協調人</td></tr>
+<tr><td><code>hartley</code></td><td>Dr. William Hartley：腫瘤內科主任；核准並主持個案會議</td></tr>
+<tr><td><code>blake</code></td><td>Susan Blake, RN：護理長；排個案會議</td></tr>
+<tr><td><code>price</code> <code>webb</code> <code>finch</code> <code>cole</code> <code>hale</code> <code>kemp</code> <code>grant</code> <code>marsh</code></td><td>團隊成員：影像、病理、放腫、核醫、整形、外科、心臟內科</td></tr>
+<tr><td><code>lowry</code> <code>morgan</code> <code>wheeler</code> <code>booth</code></td><td>職類：營養師、藥師、物理治療師、社工；待辦即照會工作清單</td></tr>
+<tr><td><code>carter</code> <code>fletcher</code> <code>shaw</code> <code>quinn</code></td><td>護理師</td></tr>
+<tr><td><code>admin</code></td><td>Paul Nielsen：管理者；維護設定</td></tr></tbody></table>
+<h3>六個固定用詞</h3><table><tbody><tr><td>專科照會</td><td>醫師對醫師，受照會醫師可開醫囑</td></tr><tr><td>職類照會</td><td>營養、藥學、復健、社工；範本式，建議經主治採納才成醫囑</td></tr><tr><td>院內會診</td><td>多人出席、有主席與秘書；demo 只展示紀錄</td></tr><tr><td>團隊會議 MDT</td><td>常設腫瘤團隊，每週議程</td></tr><tr><td>個案跨團隊會議</td><td>由主治從團隊總覽啟動</td></tr><tr><td>家庭會議</td><td>另立紀錄，依角色簽名</td></tr></tbody></table>
+<h3>限制</h3><ul class="note"><li>資料全部虛構；不對外傳送任何資料（沒有網路呼叫）。</li><li>MDT 寫入功能僅供示範，不代表一期交付範圍。</li><li>AI 輔助、遠距 MDT、自動排入與 PACS 影像只列為 roadmap。</li><li>只有 EN 與中文；MDT 模組沒有越南文。</li></ul>
+</div></div></section>
+
+<section><h2>7 · If something looks wrong, and how to send feedback ／ 遇到問題、怎麼寄回饋</h2>
+<div class="two"><div>
+<table><tbody>
+<tr><td>A button named in the tour is not on the page</td><td>Check the role at the top right (press “Go to this step” again); check the ⚠ earlier step was done in this browser; for meetings and reports, move the demo clock (section 3). Submit buttons are grey while a required field is empty.</td></tr>
+<tr><td>The page is empty or looks broken</td><td>Press “Restart demo data” in the tour panel, or reload the page.</td></tr>
+<tr><td>Text is in the wrong language</td><td>EN / 中文 at the top right; the tour follows it.</td></tr>
+<tr><td>I want to start again from scratch</td><td>“Restart demo data” (feedback is kept), then “Back to start”.</td></tr>
+<tr><td>I want to redo only one route</td><td>Routes share one data set: “Restart demo data”, then pick A or B.</td></tr></tbody></table>
+<h3>Sending feedback</h3><p>Open the Feedback panel → <b>All feedback</b> → <b>Export JSON</b> or <b>Export CSV</b> (or <b>Copy as text</b>) and send us the file or text. It contains only your verdicts and notes — no patient data.</p>
+</div><div class="zh">
+<table><tbody>
+<tr><td>導覽說的按鈕頁面上沒有</td><td>看右上角身分對不對（再按一次「前往這一步」）；⚠ 標的前一步有沒有在這個瀏覽器做完；開會與報告類要先調示範時鐘（第 3 節）。必填欄位沒填時送出鈕是灰的。</td></tr>
+<tr><td>頁面空白或怪怪的</td><td>按導覽面板的「重置示範資料」，或重新整理頁面。</td></tr>
+<tr><td>語言不對</td><td>右上角 EN／中文；導覽會跟著切換。</td></tr>
+<tr><td>想從頭再做一次</td><td>「重置示範資料」（回饋會保留），再按「回到起點」。</td></tr>
+<tr><td>只想重做一條線</td><td>兩條線共用同一套資料：先「重置示範資料」，再選 A 或 B。</td></tr></tbody></table>
+<h3>寄回饋</h3><p>打開回饋面板 → <b>全部回饋</b> → <b>匯出 JSON</b> 或 <b>匯出 CSV</b>（或<b>複製文字</b>），把檔案或文字寄給我們。裡面只有您的判斷與意見，沒有病人資料。</p>
+</div></div></section>
 </main>
-<footer>EMR · Smart MDT demo · P4 · 2026-11 · Demo Hospital (fictional) · <a href="index.html">Back to the demo</a></footer>
+<footer>EMR · Smart MDT demo · P4.1 · 2026-11 · Demo Hospital (fictional) · <a href="index.html">Back to the demo</a></footer>
 </body></html>

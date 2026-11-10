@@ -150,6 +150,13 @@
     ['Export JSON', '匯出 JSON', ''], ['Export CSV', '匯出 CSV', ''], ['Copy as text', '複製文字', ''], ['Back', '返回', ''], ['Clear all', '全部清除', ''], ['Remove', '移除', ''], ['Page', '頁面', ''], ['Verdict', '判斷', ''], ['Note', '意見', ''],
     ['No feedback saved yet. Use the three buttons on any page.', '還沒有回饋；在任何一頁用三顆按鈕留下判斷。', ''], ['Send the exported file (or the copied text) back to us; it contains only your verdicts and notes, no patient data.', '把匯出的檔案（或複製的文字）寄回給我們；內容只有您的判斷與意見，沒有病人資料。', ''],
     ['What should change, and why? (optional)', '要改什麼、為什麼？（選填）', ''], ['Clear all saved feedback in this browser?', '清除這台瀏覽器的全部回饋？', ''],
+    // ---- P4.1（2026-11-11）：導覽修訂、示範控制按鈕完整字串（避免逐字拆譯成「第 conference 案」）----
+    ['Back to start', '回到起點', ''], ['Dock panel', '面板歸位', ''], ['Drag to move', '拖曳可移動', ''], ['⠿ Guided tour', '⠿ 導覽模式', ''],
+    ['MDT meeting · 11-04 14:00', 'MDT 會議 · 11-04 14:00', ''], ['Case conference · 11-05 07:50', '個案會議 · 11-05 07:50', ''], ['Family meeting · 11-05 13:30', '家庭會議 · 11-05 13:30', ''], ['Treatment day · 11-06 09:30', '治療日 · 11-06 09:30', ''],
+    ['Receive echo report (LVEF 60%) · 11-05 08:50', '收到心臟超音波報告（LVEF 60%）· 11-05 08:50', ''], ['Echo report received (LVEF 60%)', '心臟超音波報告已收到（LVEF 60%）', ''],
+    ['each row becomes a hand-off task when the chair locks the record · rows suggested from the pre-fills; edit or clear them freely', '主席鎖定紀錄時每一列成為交接任務 · 各列依預填先建議，可自行修改或清空', ''],
+    ['Confirm and lock record v{0}', '確認並鎖定紀錄 v{0}', ''], ['{0} opinion(s) not yet confirmed by the member (warning only)', '{0} 位成員的意見尚未由本人確認（僅提醒）', ''], ['Create v{0} draft', '建立 v{0} 草稿', ''],
+    ['All patients, staff and data in this demo are fictitious. MDT write actions in this demo are for demonstration only and are not part of the phase 1 scope.', '本示範的病人、人員與資料全部虛構。MDT 寫入功能僅供示範，不代表一期交付範圍。', ''],
     ['Guided tour', '導覽模式', ''], ['Switch to', '切換身分', ''], ['Previous step', '上一步', ''], ['Next step', '下一步', ''], ['Go to this step', '前往這一步', ''], ['Guide (one page)', '一頁操作說明', ''], ['Restart demo data', '重置示範資料', ''],
     ['Clear this browser’s demo changes and start over? Feedback notes are kept.', '清除這台瀏覽器的示範變更並重來？回饋會保留。', '']
   ];

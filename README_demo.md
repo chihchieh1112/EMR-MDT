@@ -107,6 +107,8 @@
 
 **GitHub Pages（2026-11-10）**：公開 repo `https://github.com/chihchieh1112/EMR-MDT`（分支 main，內容＝`demo\` 全部＋`.nojekyll`＋`README.md`；工作副本在 `..\_github\EMR-MDT\`，由 `demo\` 複製而來，更新時重新複製再 commit／push）。三個 html 加了 `<meta name="robots" content="noindex,nofollow">`，網址不會被搜尋引擎收錄，但知道網址的人都能開。Pages 啟用後網址：`https://chihchieh1112.github.io/EMR-MDT/`（導覽入口 `index.html?tour=1`、說明 `guide.html`）。
 
+**P4.1（2026-11-11，使用者試用後修正）**：導覽面板可拖曳（抓標題列或圓鈕，位置存 `emr-mdt-tour-pos-v1`；↙ 歸位；回饋面板同樣可拖）；多「回到起點」；每步多「要按：」（按鈕名稱用 `ICUi18n.t` 翻成目前介面語言，中文介面才找得到）、「✍ 要自己填」（附範例文字）、「⚠ 要先做完第 N 步」、「ⓘ 示範時間怎麼用」（第 8／14 步與 B 線 7／8 步）；第 7 步改寫成「做了第 6 步 7/8，否則 6/8」；A 線第 9 步處置計畫三列由 `seed-mdt.js` 的 `suggestedActions` 先帶入（第 2 列負責人 Dr. Finch，所以第 12 步才有任務可接收；`mdt-ui.js` record() 在計畫未存過時用它當預設列）；示範控制按鈕與鎖定／意見確認字串補進 `demo-dict.js`（原本被逐字拆譯成「第 conference 案」）。`guide.html` 改寫為測試者說明（面板各元素、示範時鐘、兩條線逐步表、疑難排解）。儲存鍵改 `emr-mdt-demo-v4`、資源 `?v=p5`、版本 P4.1。瀏覽器走過 A 線 2→4、8→10、12 與拖曳、回到起點；node 煙霧測試全過。
+
 未做（可選）：5 分鐘操作影片（可用 `operation-demo-video` skill 以這些畫面製作）；越南文 MDT 字串。
 
 ## 下一步

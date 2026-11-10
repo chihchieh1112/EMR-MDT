@@ -29,5 +29,18 @@
 .demo-tour-text{margin:0;line-height:1.5}
 .demo-tour-foot{justify-content:space-between}
 .demo-tour-foot a{font-size:13px}
+/* P4.1：拖曳移動、歸位、每步的「要按／要填／先做」提示 */
+.demo-tour.is-moved,.demo-fb.is-moved{bottom:auto;right:auto}
+.demo-tour-panel header,.demo-fb-panel header,.demo-tour-toggle,.demo-fb-toggle{cursor:move;user-select:none;touch-action:none}
+.demo-tour-panel header strong,.demo-fb-panel header strong{cursor:move}
+.demo-tour-dock{min-width:28px;min-height:28px;padding:2px 6px;font-size:14px;border-radius:999px;border:1px solid var(--border-default,#dce7e1);background:#fff;color:var(--text-secondary,#5c6f69);cursor:pointer}
+.demo-tour-press,.demo-tour-type,.demo-tour-needs{margin:0;font-size:13px;line-height:1.5;border-radius:8px;padding:6px 8px}
+.demo-tour-press{background:#eef7f3;border:1px solid #cfe6da}
+.demo-tour-press kbd{display:inline-block;background:#fff;border:1px solid var(--brand-600,#148d68);color:var(--brand-800,#0d5a41);border-radius:6px;padding:1px 7px;font:inherit;font-weight:600;margin:1px 0}
+.demo-tour-type{background:#fff7e6;border:1px solid #f0d9a8;color:#5a4208}
+.demo-tour-needs{background:#fdecea;border:1px solid #f3c4bd;color:#8c2b1b}
+.demo-tour-tip{font-size:12px;color:var(--text-secondary,#5c6f69)}
+.demo-tour-tip summary{cursor:pointer;color:var(--brand-800,#0d5a41)}
+.demo-tour-tip p{margin:4px 0 0;line-height:1.5}
 @media (max-width:900px){.demo-fb-panel,.demo-tour-panel{max-height:50vh;width:calc(100vw - 32px)}.demo-tour{bottom:64px}.demo-fb{z-index:61}}
 @media print{.demo-fb,.demo-tour{display:none !important}}

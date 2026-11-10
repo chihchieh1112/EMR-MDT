@@ -3,14 +3,14 @@
 (function (root) {
   'use strict';
   root.DEMO = {
-    version: 'P4 · 2026-11-10',
+    version: 'P4.1 · 2026-11-11',
     name: 'EMR · Smart MDT',
     hospital: 'Demo Hospital',
     unit: 'Oncology',
     tagline: 'Demo Hospital · Oncology',
     logo: 'assets/brand-icon.svg',
     defaultActor: 'mercer',
-    storageKey: 'emr-mdt-demo-v3',
+    storageKey: 'emr-mdt-demo-v4',
     mdtPlaceholder: false,
     hideHis: true,
     neutralForms: true,

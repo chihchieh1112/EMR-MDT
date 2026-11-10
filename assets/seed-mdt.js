@@ -56,7 +56,12 @@
       question: 'Right breast IDC cT2N1M0, luminal B-like (HER2-negative), patient wishes breast conservation: neoadjuvant chemotherapy first or upfront surgery? Regimen and sequence; axillary management; genetics referral.',
       reason: 'Newly diagnosed stage IIB breast cancer; specialist consult (Breast Surgery, 11-03) recommends team discussion to agree the treatment sequence.',
       proposer: 'mercer', presenter: 'mercer', createdAt: '2026-11-03T10:05', source: {kind: 'consult', id: 'CS-1102-04'}, ecog: '1', wishes: '', prefill: true,
-      lateProposal: true, previous: null},
+      lateProposal: true, previous: null,
+      // 紀錄頁處置計畫的預設列（demo-only）：讓導覽第 9 步不用自己想要填什麼，第 12 步 Dr. Finch 才有任務可接收；秘書可改可刪。
+      suggestedActions: [
+        {kind: 'treatment', text: 'Start neoadjuvant AC cycle 1 (doxorubicin 60 mg/m² + cyclophosphamide 600 mg/m²) once LVEF ≥ 50%', owner: 'mercer', due: '2026-11-06'},
+        {kind: 'referral', text: 'Radiotherapy planning consultation after surgery (whole-breast RT if breast-conserving; regional nodes if pN ≥ 1)', owner: 'finch', due: '2026-11-18'},
+        {kind: 'operational', text: 'Arrange genetic counselling and BRCA1/2 germline testing (family history)', owner: 'whitfield', due: '2026-11-11'}]},
     {id: 'MDT-1030-02', p: 'P02', team: 'breast', session: 'S-BREAST-W44', seq: 2, status: 'submitted', type: 'postop', urgency: 'routine',
       question: 'Left breast IDC after modified radical mastectomy (11-02), clinical N1: adjuvant systemic therapy and radiotherapy plan pending final histology (expected 11-09).',
       reason: 'Post-operative adjuvant planning.', proposer: 'ashford', presenter: 'ashford', createdAt: '2026-10-30T11:20', submittedAt: '2026-10-30T11:25', source: {kind: 'manual'}, ecog: '0', wishes: 'Wants to return to work within 3 months; prefers the shortest effective treatment.', prefill: false},

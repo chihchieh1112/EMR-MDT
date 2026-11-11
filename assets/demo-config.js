@@ -17,6 +17,6 @@
     langs: ['en', 'zh'],
     defaultLang: 'en',
     // 回饋回傳：Google Apps Script 網頁應用程式網址（/exec）；空字串＝只存瀏覽器。部署方式見 _build/feedback-apps-script.gs。
-    feedbackEndpoint: ''
+    feedbackEndpoint: 'https://script.google.com/macros/s/AKfycbxTl-ptr2aakp6HcQQ7_Eek_S3VHuIj3TH-V2Jdv-k-QF_lUsK0I--0YOIU4tOI9BxgeA/exec'
   };
 })(globalThis);

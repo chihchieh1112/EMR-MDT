@@ -157,6 +157,10 @@
     ['each row becomes a hand-off task when the chair locks the record · rows suggested from the pre-fills; edit or clear them freely', '主席鎖定紀錄時每一列成為交接任務 · 各列依預填先建議，可自行修改或清空', ''],
     ['Confirm and lock record v{0}', '確認並鎖定紀錄 v{0}', ''], ['{0} opinion(s) not yet confirmed by the member (warning only)', '{0} 位成員的意見尚未由本人確認（僅提醒）', ''], ['Create v{0} draft', '建立 v{0} 草稿', ''],
     ['All patients, staff and data in this demo are fictitious. MDT write actions in this demo are for demonstration only and are not part of the phase 1 scope.', '本示範的病人、人員與資料全部虛構。MDT 寫入功能僅供示範，不代表一期交付範圍。', ''],
+    ['Your name or organisation (optional)', '您的姓名或單位（選填）', ''], ['e.g. Dr. Lee, Oncology', '例如：李醫師，腫瘤科', ''],
+    ['Saved in this browser and sent to the project team’s sheet (only your verdict, note and the page). Each page keeps one verdict; saving again replaces it.', '存在這台瀏覽器並送到專案團隊的試算表（只有您的判斷、意見與頁面）。每一頁保留一個判斷，再存會取代。', ''],
+    ['{0} not yet sent — will retry.', '{0} 筆尚未送出，會再重試。', ''], ['Saved and sent.', '已儲存並送出。', ''], ['Saved; could not send now, will retry.', '已儲存；目前送不出去，稍後重試。', ''], ['Send again', '再送一次', ''],
+    ['✓ = received by the project team’s sheet; ⏳ = not sent yet. Removing a row here does not remove it from the sheet.', '✓＝專案團隊的試算表已收到；⏳＝尚未送出。在這裡移除不會從試算表移除。', ''],
     ['Guided tour', '導覽模式', ''], ['Switch to', '切換身分', ''], ['Previous step', '上一步', ''], ['Next step', '下一步', ''], ['Go to this step', '前往這一步', ''], ['Guide (one page)', '一頁操作說明', ''], ['Restart demo data', '重置示範資料', ''],
     ['Clear this browser’s demo changes and start over? Feedback notes are kept.', '清除這台瀏覽器的示範變更並重來？回饋會保留。', '']
   ];

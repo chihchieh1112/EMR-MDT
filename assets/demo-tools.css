@@ -44,3 +44,6 @@
 .demo-tour-tip p{margin:4px 0 0;line-height:1.5}
 @media (max-width:900px){.demo-fb-panel,.demo-tour-panel{max-height:50vh;width:calc(100vw - 32px)}.demo-tour{bottom:64px}.demo-fb{z-index:61}}
 @media print{.demo-fb,.demo-tour{display:none !important}}
+.demo-fb-tester{display:grid;gap:3px;font-size:12px;color:var(--text-secondary,#5c6f69)}
+.demo-fb-name{width:100%;box-sizing:border-box;font:inherit;font-size:13px;border:1px solid var(--border-default,#dce7e1);border-radius:8px;padding:5px 8px}
+.demo-fb-unsent{color:#8c2b1b}

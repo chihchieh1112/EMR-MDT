@@ -15,6 +15,8 @@
     hideHis: true,
     neutralForms: true,
     langs: ['en', 'zh'],
-    defaultLang: 'en'
+    defaultLang: 'en',
+    // 回饋回傳：Google Apps Script 網頁應用程式網址（/exec）；空字串＝只存瀏覽器。部署方式見 _build/feedback-apps-script.gs。
+    feedbackEndpoint: ''
   };
 })(globalThis);

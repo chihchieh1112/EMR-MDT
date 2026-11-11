@@ -53,7 +53,7 @@ footer{color:var(--muted);font-size:12px;text-align:center;padding:12px}
 <div><b>Restart demo data</b> — wipes this browser’s demo changes and reloads (your feedback is kept).</div>
 </div>
 <p class="note"><b>Move the panel:</b> drag it by its title bar (or by the round button when collapsed) so it does not cover what you are working on. ↙ docks it back to the corner. The Feedback panel can be dragged the same way.</p>
-<h3>Feedback (bottom right)</h3><p>On any page, mark it <span class="pill">Fits our workflow</span> <span class="pill warn">Needs change</span> <span class="pill muted">Not needed</span>, add a note, press “Save for this page”. See section 7 for sending it back.</p>
+<h3>Feedback (bottom right)</h3><p>On any page, mark it <span class="pill">Fits our workflow</span> <span class="pill warn">Needs change</span> <span class="pill muted">Not needed</span>, add a note, press “Save for this page”. It is sent to the project team automatically (section 7).</p>
 </div><div class="zh">
 <h3>導覽模式（左下角）</h3>
 <div class="panel">
@@ -69,7 +69,7 @@ footer{color:var(--muted);font-size:12px;text-align:center;padding:12px}
 <div><b>重置示範資料</b>：清掉這個瀏覽器的示範變更並重新載入（回饋會保留）。</div>
 </div>
 <p class="note"><b>移動面板：</b>抓住標題列（收合時抓圓鈕）拖曳，就不會擋到要操作的畫面；↙ 可歸位到角落。回饋面板也可以同樣拖曳。</p>
-<h3>回饋（右下角）</h3><p>任何一頁都可以標記 <span class="pill">符合</span> <span class="pill warn">要改</span> <span class="pill muted">不需要</span>，寫意見，按「儲存這一頁」。怎麼寄回見第 7 節。</p>
+<h3>回饋（右下角）</h3><p>任何一頁都可以標記 <span class="pill">符合</span> <span class="pill warn">要改</span> <span class="pill muted">不需要</span>，寫意見，按「儲存這一頁」，會自動送給專案團隊（第 7 節）。</p>
 </div></div></section>
 
 <section><h2>3 · Demo time (the demo clock) ／ 示範時間（示範時鐘）</h2>
@@ -132,7 +132,7 @@ footer{color:var(--muted);font-size:12px;text-align:center;padding:12px}
 <tr><td><code>carter</code> <code>fletcher</code> <code>shaw</code> <code>quinn</code></td><td>Nurses</td></tr>
 <tr><td><code>admin</code></td><td>Paul Nielsen — administrator; maintenance settings</td></tr></tbody></table>
 <h3>Six fixed terms</h3><table><tbody><tr><td>Specialist consult</td><td>doctor to doctor; the consultant can order</td></tr><tr><td>Allied-health consult</td><td>nutrition, pharmacy, rehabilitation, social work; template-based; orders only after the attending adopts</td></tr><tr><td>Multi-physician consultation</td><td>several attendees, chair and secretary; read-only records in this demo</td></tr><tr><td>Team meeting (MDT)</td><td>standing tumour board with a weekly agenda</td></tr><tr><td>Case conference</td><td>started by the attending from the team overview</td></tr><tr><td>Family meeting</td><td>separate record with role-based signatures</td></tr></tbody></table>
-<h3>Limits</h3><ul class="note"><li>All data is fictitious; nothing is sent anywhere (no network calls).</li><li>MDT write actions are for demonstration only and are not part of the phase 1 scope.</li><li>AI assistance, remote MDT, automatic enrolment and PACS images are listed only as roadmap.</li><li>EN and 中文 only; no Vietnamese strings for the MDT module.</li></ul>
+<h3>Limits</h3><ul class="note"><li>All data is fictitious. The only thing the page ever sends out is your feedback (verdict, note, page, role, optional name) to the project team’s Google Sheet.</li><li>MDT write actions are for demonstration only and are not part of the phase 1 scope.</li><li>AI assistance, remote MDT, automatic enrolment and PACS images are listed only as roadmap.</li><li>EN and 中文 only; no Vietnamese strings for the MDT module.</li></ul>
 </div><div class="zh">
 <h3>身分（網址 <code>actor=</code>；導覽會自動設定）</h3>
 <table><tbody>
@@ -147,7 +147,7 @@ footer{color:var(--muted);font-size:12px;text-align:center;padding:12px}
 <tr><td><code>carter</code> <code>fletcher</code> <code>shaw</code> <code>quinn</code></td><td>護理師</td></tr>
 <tr><td><code>admin</code></td><td>Paul Nielsen：管理者；維護設定</td></tr></tbody></table>
 <h3>六個固定用詞</h3><table><tbody><tr><td>專科照會</td><td>醫師對醫師，受照會醫師可開醫囑</td></tr><tr><td>職類照會</td><td>營養、藥學、復健、社工；範本式，建議經主治採納才成醫囑</td></tr><tr><td>院內會診</td><td>多人出席、有主席與秘書；demo 只展示紀錄</td></tr><tr><td>團隊會議 MDT</td><td>常設腫瘤團隊，每週議程</td></tr><tr><td>個案跨團隊會議</td><td>由主治從團隊總覽啟動</td></tr><tr><td>家庭會議</td><td>另立紀錄，依角色簽名</td></tr></tbody></table>
-<h3>限制</h3><ul class="note"><li>資料全部虛構；不對外傳送任何資料（沒有網路呼叫）。</li><li>MDT 寫入功能僅供示範，不代表一期交付範圍。</li><li>AI 輔助、遠距 MDT、自動排入與 PACS 影像只列為 roadmap。</li><li>只有 EN 與中文；MDT 模組沒有越南文。</li></ul>
+<h3>限制</h3><ul class="note"><li>資料全部虛構。頁面唯一會送出的只有您的回饋（判斷、意見、頁面、身分、選填的姓名），送到專案團隊的 Google 試算表。</li><li>MDT 寫入功能僅供示範，不代表一期交付範圍。</li><li>AI 輔助、遠距 MDT、自動排入與 PACS 影像只列為 roadmap。</li><li>只有 EN 與中文；MDT 模組沒有越南文。</li></ul>
 </div></div></section>
 
 <section><h2>7 · If something looks wrong, and how to send feedback ／ 遇到問題、怎麼寄回饋</h2>
@@ -158,7 +158,7 @@ footer{color:var(--muted);font-size:12px;text-align:center;padding:12px}
 <tr><td>Text is in the wrong language</td><td>EN / 中文 at the top right; the tour follows it.</td></tr>
 <tr><td>I want to start again from scratch</td><td>“Restart demo data” (feedback is kept), then “Back to start”.</td></tr>
 <tr><td>I want to redo only one route</td><td>Routes share one data set: “Restart demo data”, then pick A or B.</td></tr></tbody></table>
-<h3>Sending feedback</h3><p>Open the Feedback panel → <b>All feedback</b> → <b>Export JSON</b> or <b>Export CSV</b> (or <b>Copy as text</b>) and send us the file or text. It contains only your verdicts and notes — no patient data.</p>
+<h3>Sending feedback</h3><p>Every time you press <b>Save for this page</b> the entry is also sent to the project team’s Google Sheet automatically (you see “Saved and sent”). Fill in <b>Your name or organisation</b> once so we know who it came from. If you are offline it is kept and sent later; <b>All feedback</b> shows ✓ sent / ⏳ pending and has <b>Send again</b>. Export JSON / CSV remains available as a backup. Only your verdicts, notes and the page name are sent — no patient data.</p>
 </div><div class="zh">
 <table><tbody>
 <tr><td>導覽說的按鈕頁面上沒有</td><td>看右上角身分對不對（再按一次「前往這一步」）；⚠ 標的前一步有沒有在這個瀏覽器做完；開會與報告類要先調示範時鐘（第 3 節）。必填欄位沒填時送出鈕是灰的。</td></tr>
@@ -166,7 +166,7 @@ footer{color:var(--muted);font-size:12px;text-align:center;padding:12px}
 <tr><td>語言不對</td><td>右上角 EN／中文；導覽會跟著切換。</td></tr>
 <tr><td>想從頭再做一次</td><td>「重置示範資料」（回饋會保留），再按「回到起點」。</td></tr>
 <tr><td>只想重做一條線</td><td>兩條線共用同一套資料：先「重置示範資料」，再選 A 或 B。</td></tr></tbody></table>
-<h3>寄回饋</h3><p>打開回饋面板 → <b>全部回饋</b> → <b>匯出 JSON</b> 或 <b>匯出 CSV</b>（或<b>複製文字</b>），把檔案或文字寄給我們。裡面只有您的判斷與意見，沒有病人資料。</p>
+<h3>寄回饋</h3><p>每次按<b>儲存這一頁</b>，那一筆會自動送到專案團隊的 Google 試算表（會顯示「已儲存並送出」）。請先填一次<b>您的姓名或單位</b>，我們才知道是誰的意見。離線時會先留著、之後再送；<b>全部回饋</b>裡 ✓ 是已送出、⏳ 是待送，也有<b>再送一次</b>。匯出 JSON／CSV 仍可當備份。只送您的判斷、意見與頁面名稱，沒有病人資料。</p>
 </div></div></section>
 </main>
 <footer>EMR · Smart MDT demo · P4.1 · 2026-11 · Demo Hospital (fictional) · <a href="index.html">Back to the demo</a></footer>
